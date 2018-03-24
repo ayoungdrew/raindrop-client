@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Raindrop Shop | Capitalism Reimagined</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,105 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <!--NAVBAR Start -->
+
+      <nav class="navbar navbar-default" style="margin-bottom: 0">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">RAINDROP</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="profile-button" data-toggle="modal" data-target="#user-profile">Account</a></li>
+              <li><a href="#" id="shopping-cart" data-toggle="modal" data-target="#user-profile">Cart</a></li>
+              <li><a href="#" class="sign-up"data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+              <li><a href="#" id="sign-out" class="sign-out">Sign Out</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+<!-- NAVBAR End -->
+
+<div class="container">
+  <!-- SIGN UP MODAL Start-->
+      <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="sign-up-inner" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="sign-up" class="form-group">
+                <fieldset id="signUpForms">
+                  <div>
+                  <div class="form-group col-sm-12">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small class="form-text text-muted">We'll also send you newsletters and a bunch of tic-tac-toe related spam roflmao fml</small>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="exampleInputPassword">Password</label>
+                    <input type="password" name="credentials[password]" class="form-control" aria-describedby="emailHelp" placeholder="Enter password">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="exampleInputPassword">Password Confirmation</label>
+                    <input type="password" name="credentials[password_confirmation]" class="form-control" aria-describedby="emailHelp" placeholder="Enter password">
+                  </div>
+                </div>
+                </fieldset>
+                <div class="col-sm-12" id="sign-up-modal-message"></div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="register-button" type="submit" class="btn btn-primary">Register</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--SIGN UP MODAL End-->
+
+  <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
+    <form id="sign-in" class="col-sm-12">
+      <h2>Sign In</h2>
+      <div class="form-group" style="padding-left: 0px;">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group" style="padding-left: 0px;">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+      <div style="float: right;" id="message"></div>
+    </form>
+</div>
+<div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
+  <!-- hey -->
+</div>
+<div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
+  <!-- hey -->
+</div>
+<div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
+</div>
+<div class="col-sm-12" style="min-height:100px;">
+      <button id="see-all-products" type="submit" class="btn btn-primary center-block" style="margin-top:30px;">
+        See All Products
+      </button>
+</div>
+<div id="all-products-content">
+</div>
+</div>
     </body>
 </html>
