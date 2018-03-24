@@ -1,3 +1,5 @@
+'use strict'
+
 const productApi = require('./api')
 
 const onGetProducts = function (event) {
