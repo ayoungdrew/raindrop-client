@@ -1,0 +1,19 @@
+{{#each products as |product|}}
+
+  <ul>
+    <li>
+      <h1 data-id="{{product.id}}">
+        <small>
+          {{product.name}}
+        </small>
+      </h1>
+    </li>
+    <li>
+        Price: ${{product.price}}
+    </li>
+    <li>
+        Description: {{product.description}}
+    </li>
+  </ul>
+
+{{/each}}
