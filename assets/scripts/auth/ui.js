@@ -1,5 +1,7 @@
 'use strict'
 
+const store = require('../store')
+
 const signUpSuccess = function (data) {
   $('#sign-up-modal').modal('hide')
   $('#sign-up').get(0).reset()
@@ -12,6 +14,7 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
+  store.user = data.user
   $('#sign-in').get(0).reset()
   console.log('Sign In Success')
 }
