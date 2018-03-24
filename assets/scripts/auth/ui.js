@@ -11,7 +11,19 @@ const signUpFailure = function () {
   console.log('Sign Up Error')
 }
 
+const signInSuccess = function (data) {
+  $('#sign-in').get(0).reset()
+  console.log('Sign In Success')
+}
+
+const signInFailure = function () {
+  $('#sign-in').get(0).reset()
+  console.log('Sign In Error')
+}
+
 module.exports = {
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
+  signInSuccess,
+  signInFailure
 }
