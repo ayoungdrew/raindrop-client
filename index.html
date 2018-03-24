@@ -33,6 +33,7 @@
               <li><a href="#" id="profile-button" data-toggle="modal" data-target="#user-profile">Account</a></li>
               <li><a href="#" id="shopping-cart" data-toggle="modal" data-target="#user-profile">Cart</a></li>
               <li><a href="#" class="sign-up"data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+              <li><a href="#" class="change-password"data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>
               <li><a href="#" id="sign-out" class="sign-out">Sign Out</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
@@ -80,6 +81,40 @@
         </div>
       </div>
       <!--SIGN UP MODAL End-->
+
+      <!-- Change Password MODAL Start-->
+          <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" id="change-password-inner" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="change-password" class="form-group">
+                    <fieldset id="changePasswordForms">
+                      <div>
+                      <div class="form-group col-sm-6">
+                        <label for="exampleInputPassword">Old Password</label>
+                        <input type="password" name="passwords[old]" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label for="exampleInputPassword">New Password</label>
+                        <input type="password" name="passwords[new]" class="form-control" aria-describedby="emailHelp" placeholder="New Password">
+                      </div>
+                    </div>
+                    </fieldset>
+                    <div class="col-sm-12" id="change-password-modal-message"></div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Change Password MODAL End-->
 
   <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
     <form id="sign-in" class="col-sm-12">
