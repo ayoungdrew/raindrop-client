@@ -24,6 +24,17 @@ const signInFailure = function () {
   console.log('Sign In Error')
 }
 
+const changePasswordSuccess = function (data) {
+  $('#change-password-modal').modal('hide')
+  $('#change-password').get(0).reset()
+  console.log('Change Password Success')
+}
+
+const changePasswordFailure = function () {
+  $('#change-password').get(0).reset()
+  console.log('Change Password Error')
+}
+
 const signOutSuccess = function (data) {
   console.log('Sign Out Success')
 }
@@ -37,6 +48,8 @@ module.exports = {
   signUpFailure,
   signInSuccess,
   signInFailure,
+  changePasswordSuccess,
+  changePasswordFailure,
   signOutSuccess,
   signOutFailure
 }
