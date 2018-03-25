@@ -3,16 +3,6 @@
 const config = require('../config')
 const store = require('../store')
 
-const getProducts = function () {
-  return $.ajax({
-    url: config.apiUrl + '/products/',
-    method: 'GET',
-    headers: {
-      contentType: 'application/json'
-    }
-  })
-}
-
 const getCarts = function () {
   return $.ajax({
     url: config.apiUrl + '/carts/',
@@ -36,7 +26,6 @@ const getOneCart = function (cartId) {
 }
 
 module.exports = {
-  getProducts,
   getCarts,
   getOneCart
 }

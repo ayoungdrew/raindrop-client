@@ -19,9 +19,21 @@ const onGetCarts = function (event) {
     .catch(productUi.getCartsFailure)
 }
 
+const onGetOneCart = function (event) {
+  event.preventDefault()
+  console.log('Clicked get one cart button')
+  const cartId = $('#get-one-cart input').val()
+  console.log(cartId)
+
+  productApi.getOneCart(cartId)
+    .then(productUi.getOneCartSuccess)
+    .catch(productUi.getOneCartFailure)
+}
+
 const productHandlers = () => {
   $('#see-all-products').on('click', onGetProducts)
   $('#see-all-carts').on('click', onGetCarts)
+  $('#get-one-cart').on('submit', onGetOneCart)
 }
 
 module.exports = {
