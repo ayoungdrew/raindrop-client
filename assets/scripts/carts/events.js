@@ -56,10 +56,10 @@ const onDeleteCart = function (event) {
   console.log('Clicked delete cart button')
   const cartId = $('#delete-cart input').val()
   console.log('cartId is: ', cartId)
-  //
-  // cartApi.deleteCart(cartId)
-  //   .then(cartUi.deleteCartSuccess)
-  //   .catch(cartUi.deleteCartFailure)
+
+  cartApi.deleteCart(cartId)
+    .then(cartUi.deleteCartSuccess)
+    .catch(cartUi.deleteCartFailure)
 }
 
 const addHandlers = () => {
