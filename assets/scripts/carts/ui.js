@@ -24,11 +24,21 @@ const createCartFailure = function () {
   console.log('Failed to create a cart')
 }
 
+const updateCartSuccess = function (data) {
+  console.log('Successfully updated cart')
+}
+
+const updateCartFailure = function () {
+  console.log('Failed to update a cart')
+}
+
 module.exports = {
   getCartsSuccess,
   getCartsFailure,
   getOneCartSuccess,
   getOneCartFailure,
   createCartSuccess,
-  createCartFailure
+  createCartFailure,
+  updateCartSuccess,
+  updateCartFailure
 }

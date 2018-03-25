@@ -43,11 +43,12 @@ const onUpdateCart = function (event) {
   const cartId = $('#update-cart input').val()
   console.log('cartId is: ', cartId)
   const data = getFormFields(this)
+  data.cart.cartProducts = data.cart.cartProducts.split(' ')
   console.log('patch data is ', data)
-  //
-  // cartApi.updateCart(cartId, data)
-  //   .then(cartUi.updateCartSuccess)
-  //   .catch(cartUi.updateCartFailure)
+
+  cartApi.updateCart(cartId, data)
+    .then(cartUi.updateCartSuccess)
+    .catch(cartUi.updateCartFailure)
 }
 
 const onDeleteCart = function (event) {
