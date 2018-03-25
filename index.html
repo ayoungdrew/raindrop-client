@@ -59,7 +59,7 @@
                   <div>
                   <div class="form-group col-sm-12">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="text" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                   </div>
                   <div class="form-group col-sm-6">
                     <label for="exampleInputPassword">Password</label>
@@ -115,36 +115,47 @@
           </div>
           <!-- Change Password MODAL End-->
 
-  <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
-    <form id="sign-in" class="col-sm-12">
-      <h2>Sign In</h2>
-      <div class="form-group" style="padding-left: 0px;">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      </div>
-      <div class="form-group" style="padding-left: 0px;">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
-      <div style="float: right;" id="message"></div>
-    </form>
-</div>
-<div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
-  <!-- hey -->
-</div>
-<div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
-  <!-- hey -->
-</div>
-<div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
-</div>
-<div class="col-sm-12" style="min-height:100px;">
-      <button id="see-all-products" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
-        See All Products
-      </button>
-</div>
-<div id="all-products-content">
-</div>
-</div>
+          <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
+            <form id="sign-in" class="col-sm-12">
+              <h2>Sign In</h2>
+              <div class="form-group" style="padding-left: 0px;">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="text" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group" style="padding-left: 0px;">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+              <div style="float: right;" id="message"></div>
+            </form>
+          </div>
+          <div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
+            <!-- hey -->
+          </div>
+          <div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
+            <!-- hey -->
+          </div>
+          <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
+          </div>
+          <!-- All Products Form: -->
+          <div class="col-sm-12" style="min-height:100px;">
+            <button id="see-all-products" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
+              See All Products
+            </button>
+          </div>
+          <div id="all-products-content">
+          </div>
+
+          <!-- All Carts Form -->
+          <div class="col-sm-12" style="min-height:100px;">
+            <button id="see-all-carts" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
+              See All Carts
+            </button>
+          </div>
+          <div id="all-carts-content">
+          </div>
+
+        </div>
     </body>
 </html>

@@ -11,8 +11,17 @@ const onGetProducts = function (event) {
     .catch(productUi.getProductsFailure)
 }
 
+const onGetCarts = function (event) {
+  console.log('Clicked see all carts button')
+
+  productApi.getCarts()
+    .then(productUi.getCartsSuccess)
+    .catch(productUi.getCartsFailure)
+}
+
 const productHandlers = () => {
   $('#see-all-products').on('click', onGetProducts)
+  $('#see-all-carts').on('click', onGetCarts)
 }
 
 module.exports = {

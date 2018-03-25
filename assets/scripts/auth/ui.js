@@ -15,6 +15,7 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  console.log('User data is: ', data.user)
   $('#sign-in').get(0).reset()
   console.log('Sign In Success')
 }
