@@ -2,6 +2,22 @@
 
 const store = require('../store')
 
+// store all product objects locally in a hash, where each item obj is
+// accessible by its product ID
+// takes the API product data as an argument, and returns the same so it can be
+// promise chained
+const setAllProducts = function (data) {
+  store.allProducts = {}
+  data.products.forEach((product) => {
+    store.allProducts[product._id] = product
+  })
+  console.log(store.allProducts)
+  return data
+}
+
+// store all cart data locally, sort past carts, set cart totals
+// takes the API cart data as an argument, and returns the same so it can be
+// promise chained
 const setAllLocalCarts = function (data) {
   // saves all of a user's carts from the API to local store
   store.allMyCarts = data.carts
@@ -26,7 +42,8 @@ const setAllCartTotals = function () {
   store.allMyCarts.forEach(setCartTotal)
 }
 
-// adds up the prices of all the items in a cart, and sets a `total` value
+// adds up the prices of all the items in a cart, and sets a `total` value in
+// the cart object
 const setCartTotal = function (cart) {
   let total = 0
   cart.cartProducts.forEach((cartProduct) => {
@@ -36,5 +53,6 @@ const setCartTotal = function (cart) {
 }
 
 module.exports = {
-  setAllLocalCarts
+  setAllLocalCarts,
+  setAllProducts
 }
