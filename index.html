@@ -59,7 +59,7 @@
                   <div>
                   <div class="form-group col-sm-12">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="text" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                   </div>
                   <div class="form-group col-sm-6">
                     <label for="exampleInputPassword">Password</label>
@@ -115,36 +115,86 @@
           </div>
           <!-- Change Password MODAL End-->
 
-  <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
-    <form id="sign-in" class="col-sm-12">
-      <h2>Sign In</h2>
-      <div class="form-group" style="padding-left: 0px;">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      </div>
-      <div class="form-group" style="padding-left: 0px;">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
-      <div style="float: right;" id="message"></div>
-    </form>
-</div>
-<div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
-  <!-- hey -->
-</div>
-<div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
-  <!-- hey -->
-</div>
-<div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
-</div>
-<div class="col-sm-12" style="min-height:100px;">
-      <button id="see-all-products" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
-        See All Products
-      </button>
-</div>
-<div id="all-products-content">
-</div>
-</div>
+          <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
+            <form id="sign-in" class="col-sm-12">
+              <h2>Sign In</h2>
+              <div class="form-group" style="padding-left: 0px;">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="text" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group" style="padding-left: 0px;">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+              <div style="float: right;" id="message"></div>
+            </form>
+          </div>
+          <div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
+            <!-- hey -->
+          </div>
+          <div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
+            <!-- hey -->
+          </div>
+          <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
+          </div>
+          <!-- All Products Form: -->
+          <div class="col-sm-12" style="min-height:100px;">
+            <button id="see-all-products" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
+              See All Products
+            </button>
+          </div>
+          <div id="all-products-content">
+          </div>
+
+          <!-- GET All Carts Form -->
+          <div class="col-sm-12" style="min-height:100px;">
+            <button id="see-all-carts" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
+              See All Carts
+            </button>
+          </div>
+          <div id="all-carts-content">
+          </div>
+
+          <!-- GET One Cart Form -->
+          <form class="navbar-form" id="get-one-cart">
+            <div class="form-group">
+              Get one Cart
+              <input type="text" class="form-control" placeholder="Load cart by ID">
+            </div>
+            <button type="submit" class="blue-btn btn btn-default navbar-btn">Submit</button>
+          </form>
+
+          <!-- Create Cart Form -->
+          <h2>Create Cart </h2>
+          <form id="create-cart" class="border">
+            <fieldset>
+              <input type="text" name="cart[purchased]" placeholder="Purchased? true/false">
+              <input type="text" name="cart[cartProducts]" placeholder="space delimited list of Product IDs">
+              <button type="submit" class="btn btn-primary btn">Create Cart</button>
+            </fieldset>
+          </form>
+
+          <!-- Update Cart Form -->
+          <h2>Update Cart </h2>
+          <form id="update-cart" class="border">
+            <fieldset>
+              <input type="text" placeholder="Cart ID">
+              <input type="text" name="cart[purchased]" placeholder="Purchased? true/false">
+              <input type="text" name="cart[cartProducts]" placeholder="space delimited list of Product IDs">
+              <button type="submit" class="btn btn-primary btn">Update Cart</button>
+            </fieldset>
+          </form>
+
+          <!-- Delete Cart Form -->
+          <h2>Delete Cart by ID</h2>
+          <form id="delete-cart" class="border">
+            <fieldset>
+              <input type="text" placeholder="Cart ID">
+              <button type="submit" class="btn btn-primary btn">Delete Cart</button>
+            </fieldset>
+          </form>
+
+        </div>
     </body>
 </html>
