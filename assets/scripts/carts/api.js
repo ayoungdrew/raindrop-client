@@ -25,7 +25,20 @@ const getOneCart = function (cartId) {
   })
 }
 
+const createCart = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/carts',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   getCarts,
-  getOneCart
+  getOneCart,
+  createCart
 }
