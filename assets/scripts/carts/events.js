@@ -17,6 +17,8 @@ const onGetCarts = function (event) {
   console.log('Clicked see all carts button')
 
   cartApi.getCarts()
+    // store all cart data locally, sort past carts, set cart totals
+    .then(cartParse.setAllLocalCarts)
     .then(cartUi.getCartsSuccess)
     .catch(cartUi.getCartsFailure)
 }
