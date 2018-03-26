@@ -36,6 +36,15 @@ const updateCartFailure = function (error) {
   console.log(error)
 }
 
+const addToCartSuccess = function (data) {
+  console.log('Added product cart')
+}
+
+const addToCartFailure = function (error) {
+  console.log('Failed to add product to cart')
+  console.log(error)
+}
+
 const deleteCartSuccess = function (data) {
   console.log('Successfully deleted cart')
 }
@@ -54,6 +63,8 @@ module.exports = {
   createCartFailure,
   updateCartSuccess,
   updateCartFailure,
+  addToCartSuccess,
+  addToCartFailure,
   deleteCartSuccess,
   deleteCartFailure
 }

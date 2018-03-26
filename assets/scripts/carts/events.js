@@ -2,16 +2,14 @@
 
 const cartApi = require('./api')
 const cartUi = require('./ui.js')
-const cartParse = require('./cartParse')
+const cartParse = require('./cartParse.js')
 const getFormFields = require('../../../lib/get-form-fields')
-// const store = require('../store')
+const store = require('../store')
 
 const onGetCarts = function (event) {
   console.log('Clicked see all carts button')
 
   cartApi.getCarts()
-    // store all cart data locally, sort past carts, set cart totals
-    .then(cartParse.setAllLocalCarts)
     .then(cartUi.getCartsSuccess)
     .catch(cartUi.getCartsFailure)
 }
@@ -55,19 +53,15 @@ const onUpdateCart = function (event) {
     .catch(cartUi.updateCartFailure)
 }
 
-const onAddCartProduct = function (event) {
+const onAddToCart = function (event) {
   event.preventDefault()
-  console.log('Clicked update cart button')
-
-  const productId = getFormFields(this).cart.cartProducts
-  console.log('productId is: ', productId)
-  const packagedCart = cartParse.addItemToCart(productId)
-  console.log('packagedCart is: ', packagedCart)
-  // debugger
-
-  cartApi.updateCart(packagedCart.id, packagedCart.data)
-    .then(cartUi.updateCartSuccess)
-    .catch(cartUi.updateCartFailure)
+  console.log('Clicked add to cart button')
+  console.log('Product ID is...', $(this).attr('data-id'))
+  const updatedCart = cartParse.addItemToCart($(this).attr('data-id'))
+  console.log('Active cart now looks like...', updatedCart.data)
+  cartApi.updateCart(store.activeCart._id, updatedCart.data)
+    .then(cartUi.addToCartSuccess)
+    .catch(cartUi.addToCartFailure)
 }
 
 const onDeleteCart = function (event) {
@@ -81,12 +75,24 @@ const onDeleteCart = function (event) {
     .catch(cartUi.deleteCartFailure)
 }
 
+// Stripe stuff - not working
+// const onSubmitCart = function (event) {
+// app.post('/charge', (req, res, next) => {
+//     charge(req).then(data => {
+//       res.render('thanks')
+//     }).catch(error => {
+//       res.render('error', error)
+//     })
+// })
+// }
+
 const addHandlers = () => {
   $('#see-all-carts').on('click', onGetCarts)
   $('#get-one-cart').on('submit', onGetOneCart)
   $('#create-cart').on('submit', onCreateCart)
   $('#update-cart').on('submit', onUpdateCart)
-  $('#add-cart-product').on('submit', onAddCartProduct)
+  // Add product to cart event handler
+  $('body').on('click', '.add-to-cart', onAddToCart)
   $('#delete-cart').on('submit', onDeleteCart)
 }
 
