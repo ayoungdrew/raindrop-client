@@ -86,14 +86,39 @@ const packageCartDataForAPI = function (cart) {
   return packagedCart
 }
 
+// adds selected item to activeCart in `store`, then packages the updated cart
+// data and returns it to be sent to the API
 const addItemToCart = function (productId) {
   const product = store.allProducts[productId]
   store.activeCart.cartProducts.push(product)
   return packageCartDataForAPI(store.activeCart)
 }
 
+// finds a given product in the activeCart and removes it, returning packaged
+// data for an AJAX request
+const deleteItemFromCart = function (productId) {
+  // if removed item is last item in cart, cart must be destroyed, because API
+  // won't accept empty carts, so end fucntion and return 'marked for deletion'
+  if (store.activeCart.cartProducts.length === 1) {
+    return 'marked for deletion'
+  } else {
+    // Otherwise, find and delete the given product
+    console.log('activeCart before splice is: ', store.activeCart.cartProducts.length)
+    const product = store.activeCart.cartProducts.find((product) => {
+      return product._id === productId
+    })
+    console.log('product obj is ', product)
+    const index = store.activeCart.cartProducts.indexOf(product)
+    console.log('index of product is ', index)
+    store.activeCart.cartProducts.splice(index, 1)
+    console.log('activeCart after splice is: ', store.activeCart.cartProducts.length)
+    return packageCartDataForAPI(store.activeCart)
+  }
+}
+
 module.exports = {
   setAllLocalCarts,
   setAllProducts,
-  addItemToCart
+  addItemToCart,
+  deleteItemFromCart
 }
