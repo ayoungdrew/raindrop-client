@@ -2,6 +2,7 @@
 /* global StripeCheckout */
 
 const checkoutApi = require('./api')
+const $script = require('scriptjs')
 // const checkoutUi = require('./ui.js')
 // const getFormFields = require('../../../lib/get-form-fields')
 
@@ -14,6 +15,7 @@ const checkoutApi = require('./api')
 // Stripe's API.
 // Also adds an event listener to the submit-purchase-stripe button, so that when
 // clicked, opens the stripe modal for checkout
+
 const checkout = function () {
   const handler = StripeCheckout.configure({
     key: 'pk_test_AFBOWpYyewj4wYgQD8iUWg2i',
@@ -40,6 +42,7 @@ const checkout = function () {
         })
     }
   })
+
   // adds an event listener to the submit-purchase-stripe button, so that when
   // clicked, opens the stripe modal for checkout
   document.getElementById('submit-purchase-stripe').addEventListener('click', function (event) {
@@ -61,6 +64,12 @@ const checkout = function () {
   })
 }
 
+$script('https://checkout.stripe.com/checkout.js', checkout)
+
+// This handler connects this whole file to index.js file. This allows the above functions to run
+const checkoutHandlers = () => {
+}
+
 module.exports = {
-  checkout
+  checkoutHandlers
 }

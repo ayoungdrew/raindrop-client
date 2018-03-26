@@ -9,5 +9,5 @@ $(() => {
   authEvents.addHandlers()
   productEvents.productHandlers()
   cartEvents.addHandlers()
-  checkoutEvents.checkout()
+  checkoutEvents.checkoutHandlers()
 })
