@@ -2,7 +2,10 @@
 /* global StripeCheckout */
 
 const checkoutApi = require('./api')
+const cartApi = require('../carts/api.js')
+const cartEvents = require('../carts/events.js')
 const $script = require('scriptjs')
+const cartParse = require('../carts/cartParse.js')
 // const checkoutUi = require('./ui.js')
 // const getFormFields = require('../../../lib/get-form-fields')
 
@@ -37,6 +40,10 @@ const checkout = function () {
           console.log('Payment Sent', data)
           return data
         })
+        .then(cartApi.purchasedTrue)
+        .then(cartApi.getCarts)
+        .then(cartParse.setAllLocalCarts)
+        .then(cartEvents.onGetActiveCart)
         .catch((err) => {
           console.error('Error is', err)
         })
