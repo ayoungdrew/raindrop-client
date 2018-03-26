@@ -12,6 +12,8 @@ const getActiveCartSuccess = function () {
 
 const getActiveCartFailure = function (error) {
   console.log('Failed to get active cart')
+  $('#active-cart-content').html('<p>Your Cart is Empty!</p>')
+  $('#active-cart-total').html(``)
   console.log(error)
 }
 
