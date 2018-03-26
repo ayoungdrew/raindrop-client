@@ -6,6 +6,12 @@ const cartParse = require('./cartParse.js')
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 
+// const showActiveCartTemplate = require('../templates/active-cart-listing.handlebars')
+
+const onGetActiveCart = function (event) {
+  store.activeCart ? cartUi.getActiveCartSuccess() : cartUi.getActiveCartFailure()
+}
+
 const onGetCarts = function (event) {
   console.log('Clicked see all carts button')
 
@@ -87,6 +93,7 @@ const onDeleteCart = function (event) {
 // }
 
 const addHandlers = () => {
+  $('#see-active-cart').on('click', onGetActiveCart)
   $('#see-all-carts').on('click', onGetCarts)
   $('#get-one-cart').on('submit', onGetOneCart)
   $('#create-cart').on('submit', onCreateCart)

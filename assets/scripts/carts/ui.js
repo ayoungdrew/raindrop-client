@@ -1,5 +1,19 @@
 'use strict'
 
+const store = require('../store')
+
+const showActiveCartTemplate = require('../templates/active-cart-listing.handlebars')
+
+const getActiveCartSuccess = function () {
+  const showActiveCart = showActiveCartTemplate({ cartProducts: store.activeCart.cartProducts })
+  $('#active-cart-content').html(showActiveCart)
+}
+
+const getActiveCartFailure = function (error) {
+  console.log('Failed to get active cart')
+  console.log(error)
+}
+
 const getCartsSuccess = function (data) {
   console.log('retrieved carts data is: ', data)
 }
@@ -55,6 +69,9 @@ const deleteCartFailure = function (error) {
 }
 
 module.exports = {
+
+  getActiveCartSuccess,
+  getActiveCartFailure,
   getCartsSuccess,
   getCartsFailure,
   getOneCartSuccess,
