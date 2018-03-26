@@ -10,6 +10,9 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- Below script is currently necessary to make Stripe work TODO replace this with $script in JS file -->
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+
     </head>
     <body>
       <!--NAVBAR Start -->
@@ -56,18 +59,8 @@
             </div>
             <div class="modal-body">
 
-              <form action="/purchases" method="POST">
-                <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="pk_test_AFBOWpYyewj4wYgQD8iUWg2i"
-                data-amount="2000"
-                data-name="RAINDROP"
-                data-description="2 widgets"
-                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                data-locale="auto">
-              </script>
+              <button class="btn btn-primary" id="submit-purchase-stripe">Submit Purchase</button>
 
-            </form>
             </div>
           </div>
         </div>
