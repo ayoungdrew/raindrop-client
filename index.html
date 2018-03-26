@@ -56,7 +56,10 @@
               </button>
             </div>
             <div class="modal-body">
-
+              <div id="active-cart-content">
+              </div>
+              <div id="active-cart-total">
+              </div>
               <button class="btn btn-primary" id="submit-purchase-stripe">Submit Purchase</button>
 
             </div>
@@ -163,7 +166,7 @@
           </div>
 
           <!-- GET Active Cart Button -->
-          <div class="col-sm-12" style="min-height: 300px; background-color: #ededed;">
+          <!-- <div class="col-sm-12" style="min-height: 300px; background-color: #ededed;">
             <button id="see-active-cart" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
               See Active Cart
             </button>
@@ -171,11 +174,11 @@
           </div>
           <div id="active-cart-total">
           </div>
-        </div>
+        </div> -->
 
         <!-- GET Past Purchases Button -->
         <div class="col-sm-12" style="min-height: 300px;">
-          <button id="see-past-purchases" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
+          <button id="see-past-purchases" type="button" class="btn btn-primary center-block">
             See Past Purchases
           </button>
         <div id="past-purchases-content">
@@ -193,7 +196,7 @@
           <!-- GET One Cart Form -->
           <form class="navbar-form" id="get-one-cart">
             <div class="form-group">
-              Get one Cart
+              <h2>Get one Cart</h2>
               <input type="text" class="form-control" placeholder="Load cart by ID">
             </div>
             <button type="submit" class="blue-btn btn btn-default navbar-btn">Submit</button>
