@@ -55,6 +55,21 @@ const onUpdateCart = function (event) {
     .catch(cartUi.updateCartFailure)
 }
 
+const onAddCartProduct = function (event) {
+  event.preventDefault()
+  console.log('Clicked update cart button')
+
+  const productId = getFormFields(this).cart.cartProducts
+  console.log('productId is: ', productId)
+  const packagedCart = cartParse.addItemToCart(productId)
+  console.log('packagedCart is: ', packagedCart)
+  // debugger
+
+  cartApi.updateCart(packagedCart.id, packagedCart.data)
+    .then(cartUi.updateCartSuccess)
+    .catch(cartUi.updateCartFailure)
+}
+
 const onDeleteCart = function (event) {
   event.preventDefault()
   console.log('Clicked delete cart button')
@@ -71,6 +86,7 @@ const addHandlers = () => {
   $('#get-one-cart').on('submit', onGetOneCart)
   $('#create-cart').on('submit', onCreateCart)
   $('#update-cart').on('submit', onUpdateCart)
+  $('#add-cart-product').on('submit', onAddCartProduct)
   $('#delete-cart').on('submit', onDeleteCart)
 }
 

@@ -27,7 +27,7 @@ const setAllLocalCarts = function (data) {
   // parses past purchase carts out from all of a users carts and stores locally
   setPastPurchases()
   // set the active cart, if there's more than one, set the most recent
-  // setNewestActiveCart()
+  setNewestActiveCart()
   console.log('store.pastPurchases is ', store.pastPurchases)
   return data
 }
@@ -74,17 +74,26 @@ const packageCartDataForAPI = function (cart) {
   const packagedCart = {
     id: cart.id,
     data: {
-      purchased: cart.purchased,
-      cartProducts: []
+      cart: {
+        purchased: cart.purchased,
+        cartProducts: []
+      }
     }
   }
   cart.cartProducts.forEach((product) => {
-    packagedCart.data.cartProducts.push(product._id)
+    packagedCart.data.cart.cartProducts.push(product._id)
   })
   return packagedCart
 }
 
+const addItemToCart = function (productId) {
+  const product = store.allProducts[productId]
+  store.activeCart.cartProducts.push(product)
+  return packageCartDataForAPI(store.activeCart)
+}
+
 module.exports = {
   setAllLocalCarts,
-  setAllProducts
+  setAllProducts,
+  addItemToCart
 }
