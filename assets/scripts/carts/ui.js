@@ -3,6 +3,7 @@
 const store = require('../store')
 
 const showActiveCartTemplate = require('../templates/active-cart-listing.handlebars')
+const showPastPurchasesTemplate = require('../templates/past-purchase-listing.handlebars')
 
 const getActiveCartSuccess = function () {
   const showActiveCart = showActiveCartTemplate({ cartProducts: store.activeCart.cartProducts })
@@ -14,6 +15,16 @@ const getActiveCartFailure = function (error) {
   console.log('Failed to get active cart')
   $('#active-cart-content').html('<p>Your Cart is Empty!</p>')
   $('#active-cart-total').html(``)
+  console.log(error)
+}
+
+const getPastPurchasesSuccess = function () {
+  const showPastPurchases = showPastPurchasesTemplate({ pastPurchases: store.pastPurchases })
+  $('#past-purchases-content').html(showPastPurchases)
+}
+
+const getPastPurchasesFailure = function (error) {
+  console.log('Failed to get past purchases')
   console.log(error)
 }
 
@@ -75,6 +86,8 @@ module.exports = {
 
   getActiveCartSuccess,
   getActiveCartFailure,
+  getPastPurchasesSuccess,
+  getPastPurchasesFailure,
   getCartsSuccess,
   getCartsFailure,
   getOneCartSuccess,

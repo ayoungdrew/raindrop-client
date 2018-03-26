@@ -13,6 +13,11 @@ const onGetActiveCart = function (event) {
   return event
 }
 
+const onGetPastPurchases = function (event) {
+  console.log('Clicked see all past carts button')
+  store.pastPurchases ? cartUi.getPastPurchasesSuccess() : cartUi.getPastPurchasesFailure()
+}
+
 const onGetCarts = function (event) {
   console.log('Clicked see all carts button')
 
@@ -149,6 +154,7 @@ const onDeleteCart = function (event) {
 
 const addHandlers = () => {
   $('#see-active-cart').on('click', onGetActiveCart)
+  $('#see-past-purchases').on('click', onGetPastPurchases)
   $('#see-all-carts').on('click', onGetCarts)
   $('#get-one-cart').on('submit', onGetOneCart)
   $('#create-cart').on('submit', onCreateCart)
