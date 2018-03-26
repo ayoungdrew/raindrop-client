@@ -49,6 +49,23 @@ const updateCart = function (cartId, data) {
   })
 }
 
+const purchasedTrue = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/carts/' + store.activeCart._id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      cart: {
+        purchased: true,
+        cartProducts: store.activeCart.cartProducts
+      }
+    }
+  })
+}
+
 const deleteCart = function (cartId) {
   return $.ajax({
     url: config.apiUrl + '/carts/' + cartId,
@@ -65,5 +82,6 @@ module.exports = {
   getOneCart,
   createCart,
   updateCart,
+  purchasedTrue,
   deleteCart
 }
