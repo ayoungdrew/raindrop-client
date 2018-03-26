@@ -38,7 +38,7 @@ const setNewestActiveCart = function () {
   const activeCarts = store.allMyCarts.filter((cart) => cart.purchased === false)
   // sorts all the active carts by date
   activeCarts.sort(function (a, b) {
-    return b.createdAt - a.createdAt
+    return Date.parse(b.createdAt) - Date.parse(a.createdAt)
   })
   console.log('sorted activeCarts are ', activeCarts)
   store.activeCart = activeCarts[0]
