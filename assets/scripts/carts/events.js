@@ -34,6 +34,8 @@ const onGetOneCart = function (event) {
     .catch(cartUi.getOneCartFailure)
 }
 
+// This func is used exclusively for the testing `create cart` form. TODO delete
+// this once that testing form is no longer needed
 const onCreateCart = function (event) {
   event.preventDefault()
   console.log('Clicked create cart button')
@@ -64,15 +66,40 @@ const onUpdateCart = function (event) {
 
 // adds selected item to activeCart in `store`, then packages the updated cart
 // data and passes it to the API
+// If there is no active cart, calls onCreateNewCart() instead of cartApi.updateCart()
 const onAddToCart = function (event) {
   event.preventDefault()
   console.log('Clicked add to cart button')
   const productId = $(this).attr('data-id')
   const updatedCart = cartParse.addItemToCart(productId)
-  console.log('Active cart now looks like...', updatedCart.data)
-  cartApi.updateCart(store.activeCart._id, updatedCart.data)
-    .then(cartUi.addToCartSuccess)
-    .catch(cartUi.addToCartFailure)
+  // if updatedCart === 'new cart needed'
+  if (updatedCart === 'new cart needed') {
+    onCreateNewCart(productId)
+  } else {
+    console.log('Active cart now looks like...', updatedCart.data)
+    cartApi.updateCart(store.activeCart._id, updatedCart.data)
+      .then(cartUi.addToCartSuccess)
+      .catch(cartUi.addToCartFailure)
+  }
+}
+
+// Creates a new ACTIVE cart from a given product ID. Not to be confused with
+// onCreateCart(), which is used exclusively for the testing `create cart` form.
+const onCreateNewCart = function (productId) {
+  console.log('Creating a NEW cart since yours is empty my dude')
+
+  const data = {
+    'cart': {
+      'purchased': false,
+      'cartProducts': [productId]
+    }
+  }
+
+  cartApi.createCart(data)
+    .then(cartUi.createCartSuccess)
+    .then(cartApi.getCarts)
+    .then(cartParse.setAllLocalCarts)
+    .catch(cartUi.createCartFailure)
 }
 
 // deletes a selected item from cart. If cart has only one item, destroys the cart

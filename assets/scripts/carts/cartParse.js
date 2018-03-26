@@ -88,10 +88,16 @@ const packageCartDataForAPI = function (cart) {
 
 // adds selected item to activeCart in `store`, then packages the updated cart
 // data and returns it to be sent to the API
+// If no activeCart exists, return 'new cart needed', so the event will call a
+// POST request instead of a PATCH
 const addItemToCart = function (productId) {
-  const product = store.allProducts[productId]
-  store.activeCart.cartProducts.push(product)
-  return packageCartDataForAPI(store.activeCart)
+  if (store.activeCart === undefined) {
+    return 'new cart needed'
+  } else {
+    const product = store.allProducts[productId]
+    store.activeCart.cartProducts.push(product)
+    return packageCartDataForAPI(store.activeCart)
+  }
 }
 
 // finds a given product in the activeCart and removes it, returning packaged
