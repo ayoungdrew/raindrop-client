@@ -84,6 +84,8 @@ const onAddToCart = function (event) {
     console.log('Active cart now looks like...', updatedCart.data)
     cartApi.updateCart(store.activeCart._id, updatedCart.data)
       .then(cartUi.addToCartSuccess)
+      .then(cartApi.getCarts)
+      .then(cartParse.setAllLocalCarts)
       .catch(cartUi.addToCartFailure)
   }
 }
