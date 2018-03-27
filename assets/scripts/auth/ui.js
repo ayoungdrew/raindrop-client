@@ -18,9 +18,6 @@ const signInSuccess = function (data) {
   console.log('User data is: ', data.user)
   $('#sign-in').get(0).reset()
   console.log('Sign In Success')
-  $('#sign-in').css({
-    'display': 'none'
-  })
   $('#intro-header').css({
     'display': 'block'
   })
