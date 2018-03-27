@@ -46,11 +46,18 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onBackHome = function (event) {
+  $('#intro-header').css({
+    'display': 'block'
+  })
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
+  $('.back-home').on('click', onBackHome)
 }
 
 module.exports = {

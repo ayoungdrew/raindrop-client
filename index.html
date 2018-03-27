@@ -6,6 +6,9 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <style>
+      @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i');
+      </style>
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -15,24 +18,21 @@
     <body>
       <!--NAVBAR Start -->
 
-      <nav class="navbar navbar-default" style="margin-bottom: 0">
-        <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0">
+        <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">RAINDROP</a>
+            <a class="navbar-brand back-home" href="#">RAINDROP</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="test-forms-button">Test Forms</a></li>
+              <li><a href="#" id="all-products-button">Products</a></li>
               <li><a href="#" id="profile-button" data-toggle="modal" data-target="#user-profile">Account</a></li>
               <li><a href="#" id="shopping-cart" data-toggle="modal" data-target="#cart-modal">Cart</a></li>
+              <li><a href="#" class="sign-in-button" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>
               <li><a href="#" class="sign-up" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
               <li><a href="#" class="change-password"data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>
               <li><a href="#" id="sign-out" class="sign-out">Sign Out</a></li>
@@ -106,6 +106,35 @@
       </div>
       <!--SIGN UP MODAL End-->
 
+      <!-- SIGN IN MODAL Start-->
+      <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="change-password-inner" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="changePasswordModalLabel">Sign In</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>
+            </div>
+            <div class="modal-body">
+            <form id="sign-in" class="form-group">
+              <h2>Sign In</h2>
+              <div class="form-group" style="padding-left: 0px;">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="text" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group" style="padding-left: 0px;">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+              <div style="float: right;" id="message"></div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+          <!--SIGN IN MODAL End-->
+
       <!-- Change Password MODAL Start-->
           <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" id="change-password-inner" role="document">
@@ -140,47 +169,72 @@
           </div>
           <!-- Change Password MODAL End-->
 
-          <div class="col-sm-12" style="min-height: 300px; background-color: #ededed;">
-            <form id="sign-in" class="col-sm-12">
-              <h2>Sign In</h2>
-              <div class="form-group" style="padding-left: 0px;">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              </div>
-              <div class="form-group" style="padding-left: 0px;">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-primary">Sign in</button>
-              <div style="float: right;" id="message"></div>
-            </form>
+</div>
+<div id="intro-header" style="display: block;">
+<div class="col-lg-12 header-main">
+<div class="col-md-6" style="color:  white; padding: 10vh;">
+</div>
+<div class="col-md-6 header-right-side text-right">
+    <h1 style="font-size: 80px; line-height: 1;">The final form of Nodemon has arrived.</h2>
+<p>The ultimate Digimon for all your command line needs</p>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 header-small landing-wrapper">
+  <h1>
+  iBox ver. 2
+</h1>
+</div>
+<div class="col-lg-3 col-md-6 header-small landing-wrapper">
+  <h1>
+  Dungeon
+</h1>
+</div>
+<div class="col-lg-3 col-md-6 header-small landing-wrapper">
+  <h1>
+  Dragon
+</h1>
+</div>
+<div class="col-lg-3 col-md-6 header-small landing-wrapper">
+  <h1>
+  Water Bottle
+</h1>
+</div>
+</div>
+<div class="container-fluid">
+          <div id="all-products-content" class="row">
           </div>
-
           <!-- All Products Form: -->
           <div class="col-sm-12" style="min-height:100px;">
             <button id="see-all-products" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
               See All Products
             </button>
           </div>
-          <div id="all-products-content">
+          <div class="container text-center">
+            <h2>About Raindrop and Wee</h2>
+            <p>Lorem ipsum, blah blah</p>
           </div>
-
-          <!-- GET Active Cart Button -->
-          <!-- <div class="col-sm-12" style="min-height: 300px; background-color: #ededed;">
-            <button id="see-active-cart" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
-              See Active Cart
-            </button>
-          <div id="active-cart-content">
-          </div>
-          <div id="active-cart-total">
-          </div>
-        </div> -->
+</div>
+<div class="container test-form">
+  <!-- <form id="sign-in" class="col-sm-12">
+    <h2>Sign In</h2>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="text" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+    <div style="float: right;" id="message"></div>
+  </form> -->
 
         <!-- GET Past Purchases Button -->
-        <div class="col-sm-12" style="min-height: 300px;">
+        <div class="col-sm-12">
           <button id="see-past-purchases" type="button" class="btn btn-primary center-block">
             See Past Purchases
           </button>
+        </div>
         <div id="past-purchases-content">
       </div>
 
@@ -194,12 +248,11 @@
           </div>
 
           <!-- GET One Cart Form -->
-          <form class="navbar-form" id="get-one-cart">
-            <div class="form-group">
-              <h2>Get one Cart</h2>
-              <input type="text" class="form-control" placeholder="Load cart by ID">
-            </div>
-            <button type="submit" class="blue-btn btn btn-default navbar-btn">Submit</button>
+          <h2>Get one Cart</h2>
+          <form class="border" id="get-one-cart">
+            <fieldset>
+              <input type="text" placeholder="Load cart by ID">
+              <button type="submit" class="btn btn-primary">Submit</button>
           </form>
 
           <!-- Create Cart Form -->
@@ -231,7 +284,18 @@
               <button type="submit" class="btn btn-primary btn">Delete Cart</button>
             </fieldset>
           </form>
+    </div>
 
-        </div>
+        <nav class="navbar navbar-default navbar-bottom" style="margin-top: 50px; margin-bottom: 0;" role="navigation">
+          <div class="container">
+            <div class="col-md-4">
+              <h3>RAINDROP</h3>
+              <p><small>Copyright © 2018 Raindrop and Wee, LLC</small></p>
+            </div>
+            <div class="col-md-4" style="padding-top: 30px;">
+              <p>Made with love at General Assembly.</p>
+            </div>
+          </div>
+        </nav>
     </body>
 </html>
