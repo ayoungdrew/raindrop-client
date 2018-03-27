@@ -38,6 +38,7 @@ const checkout = function () {
       // Stripe
       checkoutApi.createToken(tokenData)
         .then((data) => {
+          $('#cart-modal').modal('hide')
           console.log('Payment Sent', data)
           return data
         })
