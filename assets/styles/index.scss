@@ -21,6 +21,14 @@ p {
   display: none;
 }
 
+.intro-headline {
+  h1 {
+  // font-size: 80px;
+  font-size: 4vw;
+  line-height: 1;
+}
+}
+
 .header-main {
   // background-image: url(https://i.imgur.com/FH87urE.jpg);
   background: url('https://c2.staticflickr.com/8/7493/15434050963_ce0e167202_k.jpg') no-repeat;
@@ -38,10 +46,10 @@ p {
 display: flex;
 flex-direction: column;
 justify-content: center;
-background-color: rgba(140,70,20,0.9);
+background-color: rgba(2,90,110,0.9);
 color: white;
 height: 100%;
-padding: 10vh 10% 10vh 8%;
+padding: 19vh 10% 10vh 9%;
 }
 
 .header-small {
@@ -60,17 +68,9 @@ padding: 10vh 10% 10vh 8%;
 .landing-wrapper {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://c2.staticflickr.com/8/7399/11537638656_810d9b5df7_h.jpg');
   background-position: center;
-  background-size: 100%;
+  background-size: 130%;
   color: white;
 }
-
-// .stroke-1 {
-//   stroke-linecap: butt;
-// }
-//
-// .stroke-2 {
-//   stroke-linecap: square;
-// }
 
 .product-tile {
   color: white;
@@ -83,7 +83,24 @@ padding: 10vh 10% 10vh 8%;
   display: inline;
 }
 
-@media (min-width: 768px) {
+.btn-primary {
+    color: #fff;
+    background-color: #025a6e;
+    border-color: #0031ad;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #099db7;
+    border-color: #025a6e;}; /*set the color you want here*/
+
+.navbar-default {
+.navbar-brand {
+  color: #025a6e;
+}
+}
+
+@media (min-width: 992px) {
 .navbar > .container-fluid {
   margin: 0 2vw;
   font-size: 15px;
@@ -93,4 +110,61 @@ padding: 10vh 10% 10vh 8%;
   font-weight: 700;
   font-size: 26px;
 }
+}
+
+@media (max-width: 991px) {
+  .intro-headline {
+    h1 {
+    font-size: 40px;
+    line-height: 1;
+  }
+  }
+  .header-main {
+    background-position: bottom;
+    background-size: auto 100%;
+    height: 60vh;
+    min-height: 250px;
+    max-height: 800px;
+    background-color: black;
+    color: white;
+    padding: 0;
+  }
+  .header-right-side {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(2,90,110,0.9);
+  color: white;
+  height: 50%;
+  weight: 100%;
+  padding: 10% 15%;
+  margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  .header-main {
+    background-position: bottom;
+    background-size: auto 100%;
+    height: 80vh;
+    min-height: 500px;
+    max-height: 700px;
+    background-color: black;
+    color: white;
+    padding: 0;
+  }
+  .header-right-side {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(2,90,110,0.9);
+  color: white;
+  height: 50%;
+  weight: 100%;
+  padding: 10% 10%;
+  margin: 0 auto;
+  }
 }
