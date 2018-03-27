@@ -18,6 +18,7 @@ const onGetPastPurchases = function (event) {
   store.pastPurchases ? cartUi.getPastPurchasesSuccess() : cartUi.getPastPurchasesFailure()
 }
 
+// only used for testing purposes, can delete once mvp is met
 const onGetCarts = function (event) {
   console.log('Clicked see all carts button')
 
@@ -54,6 +55,7 @@ const onCreateCart = function (event) {
     .catch(cartUi.createCartFailure)
 }
 
+// only used for testing purposes, can delete once mvp is met
 const onUpdateCart = function (event) {
   event.preventDefault()
   console.log('Clicked update cart button')
@@ -103,7 +105,7 @@ const onCreateNewCart = function (productId) {
   }
 
   cartApi.createCart(data)
-    .then(cartUi.createCartSuccess)
+    .then(cartUi.addToCartSuccess)
     .then(cartApi.getCarts)
     .then(cartParse.setAllLocalCarts)
     .catch(cartUi.createCartFailure)
@@ -123,7 +125,6 @@ const onDeleteFromCart = function (event) {
   // if cart needs to be deleted, delete, otherwise patch
   if (updatedCart === 'marked for deletion') {
     cartApi.deleteCart(store.activeCart._id)
-      .then(cartUi.deleteCartSuccess)
       // next 3 .thens refresh the local cart data to match the cart data from
       // the API, and re-render the cart view
       .then(cartApi.getCarts)
