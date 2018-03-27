@@ -6,35 +6,59 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <style>
+      @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i');
+      </style>
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body>
+
       <!--NAVBAR Start -->
 
-      <nav class="navbar navbar-default" style="margin-bottom: 0">
-        <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0">
+        <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+            <a class="navbar-brand" id="back-home" href="#">RAINDROP</a>
+            <button type="button" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">RAINDROP</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#" id="profile-button" data-toggle="modal" data-target="#user-profile">Account</a></li>
-              <li><a href="#" id="shopping-cart" data-toggle="modal" data-target="#user-profile">Cart</a></li>
-              <li><a href="#" class="sign-up"data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
-              <li><a href="#" class="change-password"data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>
-              <li><a href="#" id="sign-out" class="sign-out">Sign Out</a></li>
+              <li class="dropdown">
+                  <a id="all-products-button" href="#">Products<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a id="products-clothing" href="#" data-id="Clothing">Clothing <i class="icon-arrow-right"></i></a>
+                      </li>
+                      <li>
+                        <a id="products-electronics" href="#" data-id="Electronics">Electronics <i class="icon-arrow-right"></i></a>
+                      </li>
+                      <li>
+                        <a id="products-entertainment" href="#" data-id="Entertainment">Entertainment<i class="icon-arrow-right"></i></a>
+                      </li>
+                      <li>
+                        <a id="products-home-office" href="#" data-id="Home_and_Office">Home & Office<i class="icon-arrow-right"></i></a>
+                      </li>
+                      <li>
+                        <a id="products-outdoors-sports" href="#" data-id="Outside_and_Sports">Outdoors & Sports<i class="icon-arrow-right"></i></a>
+                      </li>
+                    </ul>
+              <li><a href="#" id="account-menu" data-toggle="modal" data-target="#user-profile">Account</a></li>
+              <li><a href="#" id="cart-menu" data-toggle="modal" data-target="#cart-modal">Cart</a></li>
+              <li><a href="#" id="sign-in-menu" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>
+              <li><a href="#" id="sign-up-menu" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+              <li id="sign-out-menu"><a  href="#">Sign Out</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -43,6 +67,30 @@
 <!-- NAVBAR End -->
 
 <div class="container">
+
+  <!-- Cart MODAL Start-->
+      <div class="modal fade" id="cart-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="cart-inner" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="active-cart-content">
+              </div>
+              <div id="active-cart-total">
+              </div>
+              <button class="btn btn-primary" id="submit-purchase-stripe">Submit Purchase</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Cart MODAL End-->
+
   <!-- SIGN UP MODAL Start-->
       <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" id="sign-up-inner" role="document">
@@ -81,42 +129,17 @@
       </div>
       <!--SIGN UP MODAL End-->
 
-      <!-- Change Password MODAL Start-->
-          <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" id="change-password-inner" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form id="change-password" class="form-group">
-                    <fieldset id="changePasswordForms">
-                      <div>
-                      <div class="form-group col-sm-6">
-                        <label for="exampleInputPassword">Old Password</label>
-                        <input type="password" name="passwords[old]" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
-                      </div>
-                      <div class="form-group col-sm-6">
-                        <label for="exampleInputPassword">New Password</label>
-                        <input type="password" name="passwords[new]" class="form-control" aria-describedby="emailHelp" placeholder="New Password">
-                      </div>
-                    </div>
-                    </fieldset>
-                    <div class="col-sm-12" id="change-password-modal-message"></div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
-                </form>
-                </div>
-              </div>
+      <!-- SIGN IN MODAL Start-->
+      <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="change-password-inner" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="changePasswordModalLabel">Sign In</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>
             </div>
-          </div>
-          <!-- Change Password MODAL End-->
-
-          <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
-            <form id="sign-in" class="col-sm-12">
+            <div class="modal-body">
+            <form id="sign-in" class="form-group">
               <h2>Sign In</h2>
               <div class="form-group" style="padding-left: 0px;">
                 <label for="exampleInputEmail1">Email address</label>
@@ -129,72 +152,106 @@
               <button type="submit" class="btn btn-primary">Sign in</button>
               <div style="float: right;" id="message"></div>
             </form>
+            </div>
           </div>
-          <div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
-            <!-- hey -->
+        </div>
+      </div>
+          <!--SIGN IN MODAL End-->
+
+      <!-- Account Start-->
+      <div id="user-account" class="row">
+                <div class="col-md-6">
+                  <h3>Change Password</h3>
+                <div class="modal-body">
+                  <form id="change-password" class="form-group">
+                    <fieldset id="changePasswordForms">
+                      <div>
+                      <div class="form-group col-sm-12">
+                        <label for="exampleInputPassword">Old Password</label>
+                        <input type="password" name="passwords[old]" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
+                      </div>
+                      <div class="form-group col-sm-12">
+                        <label for="exampleInputPassword">New Password</label>
+                        <input type="password" name="passwords[new]" class="form-control" aria-describedby="emailHelp" placeholder="New Password">
+                      </div>
+                    </div>
+                    </fieldset>
+                    <div class="col-sm-12" id="change-password-modal-message"></div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h3>Past Purchases</h3>
+                <div id="past-purchases-content">
+              </div>
+            </div>
+            </div>
+          <!-- Account End-->
+
+</div>
+<div id="intro-header">
+<div class="col-lg-12 header-main">
+<div class="col-md-6" style="color:  white; padding: 10vh;">
+</div>
+<div class="col-md-6 header-right-side text-right intro-headline">
+    <h1>The final form of Nodemon has arrived.</h2>
+<p>The ultimate Digimon for all your command line needs</p>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 header-small landing-wrapper">
+  <h1>
+  iBox ver. 2
+</h1>
+</div>
+<div class="col-lg-3 col-md-6 header-small landing-wrapper">
+  <h1>
+  Dungeon
+</h1>
+</div>
+<div class="col-lg-3 col-md-6 header-small landing-wrapper">
+  <h1>
+  Dragon
+</h1>
+</div>
+<div class="col-lg-3 col-md-6 header-small landing-wrapper">
+  <h1>
+  Water Bottle
+</h1>
+</div>
+</div>
+<div class="container-fluid">
+          <div id="all-products-content" class="row">
           </div>
-          <div class="col-sm-6" style="min-height: 300px; background-color: #d8d8d8;">
-            <!-- hey -->
-          </div>
-          <div class="col-sm-6" style="min-height: 300px; background-color: #ededed;">
-          </div>
-          <!-- All Products Form: -->
-          <div class="col-sm-12" style="min-height:100px;">
+          <!-- All Products Form Start -->
+          <div id="intro-see-all-products" class="col-sm-12" style="min-height:100px;">
             <button id="see-all-products" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
               See All Products
             </button>
-          </div>
-          <div id="all-products-content">
-          </div>
 
-          <!-- GET All Carts Form -->
-          <div class="col-sm-12" style="min-height:100px;">
-            <button id="see-all-carts" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
-              See All Carts
-            </button>
+            <!-- <button id="test-this-shit" type="button" data-id="Clothing" class="btn btn-primary center-block" style="margin-top:30px;">
+              I'm a test Button
+            </button> -->
           </div>
-          <div id="all-carts-content">
-          </div>
+          <!-- All Products Form End -->
 
-          <!-- GET One Cart Form -->
-          <form class="navbar-form" id="get-one-cart">
-            <div class="form-group">
-              Get one Cart
-              <input type="text" class="form-control" placeholder="Load cart by ID">
+          <div id="intro-about-raindrop" class="container text-center">
+            <h2>About Raindrop and Wee</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum velit id tortor elementum sollici fringilla. Vestibulum ante ipsum primis in faucibus orci citudin luctus et ultrices posuere cubilia Curae; Aenean vitae ex a purus sollicitudin finibus eget ut felis. Nam arcu velit, pretium nec pellentesque at, facilisis vitae lacus. </p>
+          </div>
+</div>
+
+        <nav id="footer" class="navbar navbar-default navbar-bottom footer" style="margin-top: 50px; margin-bottom: 0;" role="navigation">
+          <div class="container">
+            <div class="col-md-4">
+              <h3>RAINDROP</h3>
+              <p><small>Copyright © 2018 Raindrop and Wee, LLC</small></p>
             </div>
-            <button type="submit" class="blue-btn btn btn-default navbar-btn">Submit</button>
-          </form>
-
-          <!-- Create Cart Form -->
-          <h2>Create Cart </h2>
-          <form id="create-cart" class="border">
-            <fieldset>
-              <input type="text" name="cart[purchased]" placeholder="Purchased? true/false">
-              <input type="text" name="cart[cartProducts]" placeholder="space delimited list of Product IDs">
-              <button type="submit" class="btn btn-primary btn">Create Cart</button>
-            </fieldset>
-          </form>
-
-          <!-- Update Cart Form -->
-          <h2>Update Cart </h2>
-          <form id="update-cart" class="border">
-            <fieldset>
-              <input type="text" placeholder="Cart ID">
-              <input type="text" name="cart[purchased]" placeholder="Purchased? true/false">
-              <input type="text" name="cart[cartProducts]" placeholder="space delimited list of Product IDs">
-              <button type="submit" class="btn btn-primary btn">Update Cart</button>
-            </fieldset>
-          </form>
-
-          <!-- Delete Cart Form -->
-          <h2>Delete Cart by ID</h2>
-          <form id="delete-cart" class="border">
-            <fieldset>
-              <input type="text" placeholder="Cart ID">
-              <button type="submit" class="btn btn-primary btn">Delete Cart</button>
-            </fieldset>
-          </form>
-
-        </div>
+            <div class="col-md-4" style="padding-top: 30px;">
+              <p>Made with love at General Assembly.</p>
+            </div>
+          </div>
+        </nav>
     </body>
 </html>
