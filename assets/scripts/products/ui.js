@@ -11,6 +11,8 @@ const getProductsSuccess = function (data) {
   $('#all-products-content').html(showProducts)
   if (store.signedIn === false) {
     $('.add-to-cart-button').hide()
+  } else if (store.signedIn === true) {
+    $('.sign-in-to-buy').hide()
   }
 }
 

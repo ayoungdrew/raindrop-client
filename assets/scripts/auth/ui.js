@@ -24,7 +24,7 @@ const signInSuccess = function (data) {
   $('#sign-in').get(0).reset()
   toast.success('Successfully signed in.')
   console.log('Sign In Success')
-  $('#sign-up-menu, #sign-in-menu').hide()
+  $('#sign-up-menu, #sign-in-menu, .sign-in-to-buy').hide()
   $('#sign-out-menu, #change-password-menu, #cart-menu, #account-menu, .add-to-cart-button, .add-to-cart-button').show()
 }
 
@@ -52,8 +52,8 @@ const signOutSuccess = function (data) {
   store.signedIn = false
   toast.success('Successfully signed out.')
   console.log('Sign Out Success')
-  $('#sign-out-menu, #change-password-menu, #cart-menu, #account-menu, #all-products-content, .add-to-cart-button').hide()
-  $('#sign-in-menu, #sign-up-menu, #intro-header').show()
+  $('#sign-out-menu, #change-password-menu, #cart-menu, #account-menu, #all-products-content, .add-to-cart-button, #user-account').hide()
+  $('#sign-in-menu, #sign-up-menu, #intro-header, #intro-see-all-products, #intro-about-raindrop, .sign-in-to-buy').show()
 }
 
 const signOutFailure = function () {

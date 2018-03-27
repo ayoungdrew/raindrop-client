@@ -157,7 +157,7 @@ const onDeleteCart = function (event) {
 
 const addHandlers = () => {
   $('#cart-menu').on('click', onGetActiveCart)
-  $('#see-past-purchases').on('click', onGetPastPurchases)
+  $('#account-menu').on('click', onGetPastPurchases)
   $('#see-all-carts').on('click', onGetCarts)
   $('#get-one-cart').on('submit', onGetOneCart)
   $('#create-cart').on('submit', onCreateCart)
