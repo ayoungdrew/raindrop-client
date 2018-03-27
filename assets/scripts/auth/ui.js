@@ -18,6 +18,12 @@ const signInSuccess = function (data) {
   console.log('User data is: ', data.user)
   $('#sign-in').get(0).reset()
   console.log('Sign In Success')
+  $('#sign-in').css({
+    'display': 'none'
+  })
+  $('#intro-header').css({
+    'display': 'block'
+  })
 }
 
 const signInFailure = function (error) {
@@ -39,6 +45,12 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function (data) {
   console.log('Sign Out Success')
+  $('#sign-out').css({
+    'display': 'none'
+  })
+  $('#sign-in').css({
+    'display': 'block'
+  })
 }
 
 const signOutFailure = function () {

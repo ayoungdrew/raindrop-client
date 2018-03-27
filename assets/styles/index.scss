@@ -1,6 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+h1 {
+  font-family: 'Poiret One', cursive;
+  font-size: 60px;
+}
+
 .modal-title {
   display: inline;
 }
