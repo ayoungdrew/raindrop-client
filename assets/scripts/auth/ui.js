@@ -1,10 +1,12 @@
 'use strict'
 
 const store = require('../store')
+const toast = require('../toasts/ui.js')
 
 const signUpSuccess = function (data) {
   $('#sign-up-modal').modal('hide')
   $('#sign-up').get(0).reset()
+  toast.signUpSuccess()
   console.log('Sign Up Success')
 }
 
