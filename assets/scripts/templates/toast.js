@@ -16,7 +16,9 @@ const success = function (text) {
 
     textAlign: 'left', // Text alignment i.e. left, right or center
     loader: true, // Whether to show loader or not. True by default
-    loaderBg: '#9EC600', // Background color of the toast loader
+    // loaderBg: '#9EC600', // Background color of the toast loader
+    loaderBg: '#16dee5', // Background color of the toast loader
+    bgColor: '#009989',
     beforeShow: function () {}, // will be triggered before the toast is shown
     afterShown: function () {}, // will be triggered after the toat has been shown
     beforeHide: function () {}, // will be triggered before the toast gets hidden
@@ -37,7 +39,8 @@ const failure = function (text) {
 
     textAlign: 'left', // Text alignment i.e. left, right or center
     loader: true, // Whether to show loader or not. True by default
-    loaderBg: '#9EC600', // Background color of the toast loader
+    loaderBg: '#f92cd0', // Background color of the toast loader
+    bgColor: '#af008c',
     beforeShow: function () {}, // will be triggered before the toast is shown
     afterShown: function () {}, // will be triggered after the toat has been shown
     beforeHide: function () {}, // will be triggered before the toast gets hidden

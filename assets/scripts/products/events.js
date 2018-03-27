@@ -6,9 +6,7 @@ const cartParse = require('../carts/cartParse')
 
 const onGetProducts = function (event) {
   console.log('Clicked see all products button')
-  $('#intro-header').css({
-    'display': 'none'
-  })
+  $('#intro-header').hide()
 
   productApi.getProducts()
     // store all product objects locally in a hash, where each item obj is
@@ -23,6 +21,9 @@ const productHandlers = () => {
   $('#test-forms-button').click(function () {
     $('.test-form').toggle()
   })
+  // $('.add-to-cart-button').on('click', function () {
+  //   if
+  // })
 }
 
 module.exports = {

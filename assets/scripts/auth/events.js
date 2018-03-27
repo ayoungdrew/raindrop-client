@@ -47,17 +47,17 @@ const onSignOut = function (event) {
 }
 
 const onBackHome = function (event) {
-  $('#intro-header').css({
-    'display': 'block'
-  })
+  console.log('hey')
+  $('#intro-header').show()
+  $('#all-products-content').hide()
 }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('click', onSignOut)
-  $('.back-home').on('click', onBackHome)
+  $('#sign-out-menu').on('click', onSignOut)
+  $('#back-home').on('click', onBackHome)
 }
 
 module.exports = {

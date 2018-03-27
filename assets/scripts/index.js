@@ -10,4 +10,6 @@ $(() => {
   productEvents.productHandlers()
   cartEvents.addHandlers()
   checkoutEvents.checkoutHandlers()
+  $('#sign-out-menu, #change-password-menu, #cart-menu, #account-menu, .add-to-cart-button').hide()
+  // $('#change-password-menu').hide()
 })

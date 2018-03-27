@@ -4,6 +4,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
+  padding-top: 45px;
 }
 
 h1 {
@@ -17,8 +18,10 @@ p {
   font-weight: 300;
 }
 
-.test-form {
-  display: none;
+.navbar-brand {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
 }
 
 .intro-headline {
@@ -104,12 +107,7 @@ padding: 19vh 10% 10vh 9%;
 .navbar > .container-fluid {
   margin: 0 2vw;
   font-size: 15px;
-}
-.navbar-brand {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-}
+  }
 }
 
 @media (max-width: 991px) {
