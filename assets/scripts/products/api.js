@@ -12,6 +12,17 @@ const getProducts = function () {
   })
 }
 
+const getProductsByCategory = function (category) {
+  return $.ajax({
+    url: config.apiUrl + '/products?category=' + category,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json'
+    }
+  })
+}
+
 module.exports = {
-  getProducts
+  getProducts,
+  getProductsByCategory
 }

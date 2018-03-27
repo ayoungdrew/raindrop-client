@@ -18,14 +18,14 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  store.signedIn = true
   console.log('User data is: ', data.user)
   $('#sign-in-modal').modal('hide')
   $('#sign-in').get(0).reset()
   toast.success('Successfully signed in.')
   console.log('Sign In Success')
-  $('#intro-header').css({
-    'display': 'block'
-  })
+  $('#sign-up-menu, #sign-in-menu, .sign-in-to-buy').hide()
+  $('#sign-out-menu, #change-password-menu, #cart-menu, #account-menu, .add-to-cart-button, .add-to-cart-button').show()
 }
 
 const signInFailure = function (error) {
@@ -49,14 +49,11 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function (data) {
+  store.signedIn = false
   toast.success('Successfully signed out.')
   console.log('Sign Out Success')
-  $('#sign-out').css({
-    'display': 'none'
-  })
-  $('#sign-in').css({
-    'display': 'block'
-  })
+  $('#sign-out-menu, #change-password-menu, #cart-menu, #account-menu, #all-products-content, .add-to-cart-button, #user-account').hide()
+  $('#sign-in-menu, #sign-up-menu, #intro-header, #intro-see-all-products, #intro-about-raindrop, .sign-in-to-buy').show()
 }
 
 const signOutFailure = function () {

@@ -46,18 +46,28 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onGetAccount = function (event) {
+  console.log('hey')
+  $('#user-account').show()
+  $('#all-products-content, #intro-header, #intro-see-all-products, #intro-about-raindrop').hide()
+}
+
 const onBackHome = function (event) {
-  $('#intro-header').css({
-    'display': 'block'
-  })
+  console.log('hey')
+  $('#intro-header, #intro-see-all-products, #intro-about-raindrop').show()
+  $('#all-products-content').hide()
 }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
+  $('#account-menu').on('click', onGetAccount)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('click', onSignOut)
-  $('.back-home').on('click', onBackHome)
+  $('#sign-out-menu').on('click', onSignOut)
+  $('#back-home').on('click', onBackHome)
+  $('.sign-in-to-buy').on('click', function () {
+    $('#sign-in-modal').modal('toggle')
+  })
 }
 
 module.exports = {

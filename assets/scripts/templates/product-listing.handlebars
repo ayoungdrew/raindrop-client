@@ -1,5 +1,5 @@
 {{#each products as |product|}}
-<div class="col-lg-3 col-md-4 col-sm-6 text-center product-tile" style="min-height: 35vh; padding: 5vh 2vw; background-color: #efefef; border: 2px solid white;">
+<div class="col-lg-3 col-md-4 col-sm-6 text-center product-tile" style="min-height: 35vh; padding: 10vh 2vw 8vh 2vw; background-color: #efefef; border: 2px solid white;">
       <h3 data-id="{{product._id}}">
           {{product.name}}
       </h3>
@@ -12,8 +12,11 @@
         <h4>
         Price: ${{product.price}}
       </h4>
-        <button class="add-to-cart btn btn-primary" data-id={{product._id}}>
+        <button class="add-to-cart btn btn-primary add-to-cart-button" data-id={{product._id}}>
           Add to Cart
+        </button>
+        <button class="add-to-cart btn btn-primary sign-in-to-buy" data-toggle="modal" data-target="#sign-in-modal">
+          Sign in to Buy
         </button>
 </div>
 {{/each}}
