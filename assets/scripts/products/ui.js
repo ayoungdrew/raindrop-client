@@ -1,6 +1,7 @@
 'use strict'
 
 const showProductsTemplate = require('../templates/product-listing.handlebars')
+const showProductDetailTemplate = require('../templates/product-detail.handlebars')
 const toast = require('../templates/toast.js')
 const store = require('../store')
 
@@ -21,7 +22,26 @@ const getProductsFailure = function () {
   console.log('Failed to get all products')
 }
 
+const getProductDetailSuccess = function (productObj) {
+  console.log('let\'s show detils for...', productObj)
+  $('#all-products-content').show()
+  const showProduct = showProductDetailTemplate({ product: productObj })
+  $('#all-products-content').html(showProduct)
+  if (store.signedIn === false) {
+    $('.add-to-cart-button').hide()
+  } else if (store.signedIn === true) {
+    $('.sign-in-to-buy').hide()
+  }
+}
+
+const getProductDetailFailure = function () {
+  toast.failure('Server connection error. Please try again later.')
+  console.log('Failed to get product details')
+}
+
 module.exports = {
   getProductsSuccess,
-  getProductsFailure
+  getProductsFailure,
+  getProductDetailSuccess,
+  getProductDetailFailure
 }

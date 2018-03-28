@@ -82,7 +82,7 @@ padding: 19vh 10% 10vh 9%;
 
 .product-tile {
   color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)), url('https://images-na.ssl-images-amazon.com/images/I/51Y0EYT9R6L.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images-na.ssl-images-amazon.com/images/I/51Y0EYT9R6L.jpg');
   background-position: center;
   background-size: 120%;
   border: 2px solid white;
@@ -93,6 +93,10 @@ padding: 19vh 10% 10vh 9%;
 
 .modal-title {
   display: inline;
+}
+
+.bread-crumbs {
+  margin-top: 30px;
 }
 
 .btn-primary {

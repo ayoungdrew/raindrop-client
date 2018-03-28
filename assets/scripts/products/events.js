@@ -3,6 +3,7 @@
 const productApi = require('./api')
 const productUi = require('./ui.js')
 const cartParse = require('../carts/cartParse')
+const store = require('../store')
 
 const onGetProducts = function (event) {
   console.log('Clicked see all products button')
@@ -26,7 +27,18 @@ const onGetProductsByCategory = function (event) {
     .catch(productUi.getProductsFailure)
 }
 
+const onGetProductDetail = function (event) {
+  console.log('Clicked .product-detail')
+  $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
+  const productId = $(this).attr('data-id')
+  console.log(store.allProducts[productId])
+  const itemObject = store.allProducts[productId]
+  productUi.getProductDetailSuccess(itemObject)
+}
+
 const productHandlers = () => {
+  productApi.getProducts()
+    .then(cartParse.setAllProducts)
   $('#see-all-products, #all-products-button').on('click', onGetProducts)
   $('#test-forms-button').click(function () {
     $('.test-form').toggle()
@@ -36,6 +48,7 @@ const productHandlers = () => {
   $('#products-entertainment').on('click', onGetProductsByCategory)
   $('#products-home-office').on('click', onGetProductsByCategory)
   $('#products-sports-outdoors').on('click', onGetProductsByCategory)
+  $('body').on('click', '.product-detail', onGetProductDetail)
   // $('#test-this-shit').on('click', onGetProductsByCategory)
 }
 
