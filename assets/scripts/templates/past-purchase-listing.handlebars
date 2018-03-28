@@ -6,9 +6,6 @@
 </h3>
   <ul>
     <li>
-        ID: {{pastPurchase._id}}
-    </li>
-    <li>
         Products:
         <ul>
         {{#each pastPurchase.cartProducts as |cartProduct|}}
@@ -16,6 +13,9 @@
         <h4>{{cartProduct.name}}</h4>
         <li>
         Price: {{cartProduct.price}}
+        </li>
+        <li>
+        Quantity: {{cartProduct.quantity}}
         </li>
         {{/each}}
       </ul>

@@ -124,9 +124,67 @@ const deleteItemFromCart = function (productId) {
   }
 }
 
+// accepts an array of product objects (from a cart) and returns a new array of
+// product objects, replacing all duplicates with a quantity attribute
+const setCartProductQuantities = function (cartProducts) {
+  // initialize the array we'll be pushing into and returning at the end
+  const packagedCartArray = []
+  // iterate through every product in the argument array
+  cartProducts.forEach((product) => {
+    // if current product is already in packagedCartArray, returns that product obj
+    // if not, returns undefined
+    const productInPackagedArray = packagedCartArray.find((pushedProduct) => {
+      return pushedProduct._id === product._id
+    })
+    // if current product is not yet in packagedCartArray, give it a quantity attribute
+    // with value 1, and push it into packagedCartArray
+    if (productInPackagedArray === undefined) {
+      const objectToPush = {
+        _id: product._id,
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        imageUrl: product.imageUrl,
+        category: product.category,
+        quantity: 1
+      }
+      packagedCartArray.push(objectToPush)
+      // if current product is already in packagedCartArray, find that obj in
+      // packagedCartArray and increase its quantity counter by 1
+    } else {
+      const productIndex = packagedCartArray.indexOf(productInPackagedArray)
+      packagedCartArray[productIndex].quantity += 1
+    }
+  })
+  console.log('cartProducts after setCartProductQuantities is ', cartProducts)
+  // now return our packaged cart product array for handlebars
+  return packagedCartArray
+}
+
+// accepts an array of pastPurchases, iterates through it and runs setCartProductQuantities
+// on each one's cartProducts array. Returns the packaged data for handlebars
+const setPastPurchaseProductQuantities = function (pastPurchases) {
+  const packagedPastPurchases = []
+  for (let i = 0; i < pastPurchases.length; i++) {
+    const purchase = pastPurchases[i]
+    console.log('purchase.cartProducts is ', purchase.cartProducts)
+    const objToPush = {
+      cartProducts: setCartProductQuantities(purchase.cartProducts),
+      createdAt: purchase.createdAt,
+      total: purchase.total,
+      id: purchase.id
+    }
+    packagedPastPurchases.push(objToPush)
+  }
+  return packagedPastPurchases
+}
+
 module.exports = {
   setAllLocalCarts,
   setAllProducts,
   addItemToCart,
-  deleteItemFromCart
+  deleteItemFromCart,
+  setCartProductQuantities,
+  setPastPurchaseProductQuantities
 }

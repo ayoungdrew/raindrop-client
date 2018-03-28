@@ -2,12 +2,15 @@
 
 const store = require('../store')
 const toast = require('../templates/toast.js')
+const cartParse = require('../carts/cartParse.js')
 
 const showActiveCartTemplate = require('../templates/active-cart-listing.handlebars')
 const showPastPurchasesTemplate = require('../templates/past-purchase-listing.handlebars')
 
 const getActiveCartSuccess = function () {
-  const showActiveCart = showActiveCartTemplate({ cartProducts: store.activeCart.cartProducts })
+  // package the cart product data to remove duplicates and set quantity for handlebars
+  const cartProductsWithQuantities = cartParse.setCartProductQuantities(store.activeCart.cartProducts)
+  const showActiveCart = showActiveCartTemplate({ cartProducts: cartProductsWithQuantities })
   $('#active-cart-content').html(showActiveCart)
   $('#active-cart-total').html(`<h2>Total: ${store.activeCart.total}</h2>`)
 }
@@ -21,8 +24,10 @@ const getActiveCartFailure = function (error) {
 }
 
 const getPastPurchasesSuccess = function () {
-  const showPastPurchases = showPastPurchasesTemplate({ pastPurchases: store.pastPurchases })
+  const pastPurchasesWithQuantities = cartParse.setPastPurchaseProductQuantities(store.pastPurchases)
+  const showPastPurchases = showPastPurchasesTemplate({ pastPurchases: pastPurchasesWithQuantities })
   $('#past-purchases-content').html(showPastPurchases)
+  console.log('store.pastPurchases after pastPurchasesWithQuantities', store.pastPurchases)
 }
 
 const getPastPurchasesFailure = function (error) {
