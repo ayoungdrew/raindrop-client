@@ -64,7 +64,9 @@ const setCartTotal = function (cart) {
   cart.cartProducts.forEach((cartProduct) => {
     total += cartProduct.price
   })
-  cart.total = total
+  console.log('total before rounding is ', total)
+  console.log('total after rounding is ', total.toFixed(2))
+  cart.total = total.toFixed(2)
 }
 
 // package a locally stored cart (which contains products in the form of

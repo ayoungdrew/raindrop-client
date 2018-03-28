@@ -35,7 +35,7 @@ const productHandlers = () => {
   $('#products-electronics').on('click', onGetProductsByCategory)
   $('#products-entertainment').on('click', onGetProductsByCategory)
   $('#products-home-office').on('click', onGetProductsByCategory)
-  $('#products-outdoors-sports').on('click', onGetProductsByCategory)
+  $('#products-sports-outdoors').on('click', onGetProductsByCategory)
   // $('#test-this-shit').on('click', onGetProductsByCategory)
 }
 
