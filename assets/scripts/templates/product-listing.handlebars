@@ -1,4 +1,5 @@
 {{#each products as |product|}}
+<a href="#">
 <div class="col-lg-3 col-md-4 col-sm-6 text-center product-tile" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, .8)), url({{product.imageUrl}}); background-position: center; background-size: 120%;" data-id="{{product._id}}" category="{{product.category}}">
       <h3>
           <a href="#" data-id="{{product._id}}" class="product-detail">{{product.name}}</a>
@@ -21,4 +22,5 @@
           Sign in to Buy
         </button>
 </div>
+</a>
 {{/each}}
