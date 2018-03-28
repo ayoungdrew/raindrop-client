@@ -124,9 +124,38 @@ const deleteItemFromCart = function (productId) {
   }
 }
 
+// accepts an array of product objects (from a cart) and returns a new array of
+// product objects, replacing all duplicates with a quantity attribute
+const setCartProductQuantities = function (cartProducts) {
+  // initialize the array we'll be pushing into and returning at the end
+  const packagedCartArray = []
+  // iterate through every product in the argument array
+  cartProducts.forEach((product) => {
+    // if current product is already in packagedCartArray, returns that product obj
+    // if not, returns undefined
+    const productInPackagedArray = packagedCartArray.find((pushedProduct) => {
+      return pushedProduct._id === product._id
+    })
+    // if current product is not yet in packagedCartArray, give it a quantity attribute
+    // with value 1, and push it into packagedCartArray
+    if (productInPackagedArray === undefined) {
+      product.quantity = 1
+      packagedCartArray.push(product)
+      // if current product is already in packagedCartArray, find that obj in
+      // packagedCartArray and increase its quantity counter by 1
+    } else {
+      const productIndex = packagedCartArray.indexOf(productInPackagedArray)
+      packagedCartArray[productIndex].quantity += 1
+    }
+  })
+  // now return our packaged cart product array for handlebars
+  return packagedCartArray
+}
+
 module.exports = {
   setAllLocalCarts,
   setAllProducts,
   addItemToCart,
-  deleteItemFromCart
+  deleteItemFromCart,
+  setCartProductQuantities
 }
