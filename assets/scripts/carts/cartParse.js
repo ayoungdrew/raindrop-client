@@ -171,7 +171,7 @@ const setPastPurchaseProductQuantities = function (pastPurchases) {
     console.log('purchase.cartProducts is ', purchase.cartProducts)
     const objToPush = {
       cartProducts: setCartProductQuantities(purchase.cartProducts),
-      createdAt: purchase.createdAt,
+      updatedAt: purchase.updatedAt,
       total: purchase.total,
       id: purchase.id
     }
