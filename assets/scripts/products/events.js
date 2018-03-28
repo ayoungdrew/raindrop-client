@@ -53,28 +53,23 @@ const productHandlers = () => {
   $('#test-forms-button').click(function () {
     $('.test-form').toggle()
   })
-  $('#products-clothing').on('click', onGetProductsByCategory)
-  $('#products-electronics').on('click', onGetProductsByCategory)
-  $('#products-entertainment').on('click', onGetProductsByCategory)
-  $('#products-home-office').on('click', onGetProductsByCategory)
-  $('#products-sports-outdoors').on('click', onGetProductsByCategory)
+  $('.products-clothing').on('click', onGetProductsByCategory)
+  $('.products-electronics').on('click', onGetProductsByCategory)
+  $('.products-entertainment').on('click', onGetProductsByCategory)
+  $('.products-home-office').on('click', onGetProductsByCategory)
+  $('.products-sports-outdoors').on('click', onGetProductsByCategory)
   $('body').on('click', '.product-detail', onGetProductDetail)
   $('body').on('click', '.all-products-breadcrumb', onGetProducts)
   $('body').on('click', '.product-category-breadcrumb', onGetProductsByCategory)
   $('#search-products').on('submit', onSearchProducts)
 
-  // $('body').on('mouseover mouseleave', '.product-tile', function () {
-    // console.log(this)
   $('body').on('mouseover', '.product-tile', function () {
-
     $(this).animate({ backgroundSize: '130%' }, 200)
-    // $(this).addClass('hey')
   })
   $('body').on('mouseleave', '.product-tile', function () {
     $(this).animate({ backgroundSize: '120%' }, 200)
-      // $(this).removeClass('hey')
+    // $(this).removeClass('hey')
   })
-
 }
 
 module.exports = {
