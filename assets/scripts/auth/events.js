@@ -56,6 +56,7 @@ const onBackHome = function (event) {
   console.log('hey')
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop').show()
   $('#all-products-content').hide()
+  $('#product-detail-content').hide()
 }
 
 const addHandlers = () => {

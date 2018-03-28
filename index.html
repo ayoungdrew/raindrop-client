@@ -19,6 +19,7 @@
 
     </head>
     <body>
+      <div class="main-content">
 
       <!--NAVBAR Start -->
 
@@ -81,7 +82,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="padding-bottom: 3vh;">
               <div id="active-cart-content">
               </div>
               <div id="active-cart-total">
@@ -122,7 +123,6 @@
                   </div>
                 </div>
                 </fieldset>
-                <div class="col-sm-12" id="sign-up-modal-message"></div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button id="register-button" type="submit" class="btn btn-primary">Register</button>
             </form>
@@ -139,6 +139,7 @@
             <div class="modal-header">
               <h5 class="modal-title" id="changePasswordModalLabel">Sign In</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
@@ -225,26 +226,28 @@
 </div>
 </div>
 <div class="container-fluid">
-          <div id="all-products-content" class="row">
-          </div>
+
+
+  <div id="product-detail-content" class="row">
+  </div>
+
+  <div id="all-products-content" class="row">
+  </div>
+
           <!-- All Products Form Start -->
           <div id="intro-see-all-products" class="col-sm-12" style="min-height:100px;">
             <button id="see-all-products" type="button" class="btn btn-primary center-block" style="margin-top:30px;">
               See All Products
             </button>
-
-            <!-- <button id="test-this-shit" type="button" data-id="Clothing" class="btn btn-primary center-block" style="margin-top:30px;">
-              I'm a test Button
-            </button> -->
-          </div>
+      </div>
           <!-- All Products Form End -->
 
           <div id="intro-about-raindrop" class="container text-center">
             <h2>About Raindrop and Wee</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum velit id tortor elementum sollici fringilla. Vestibulum ante ipsum primis in faucibus orci citudin luctus et ultrices posuere cubilia Curae; Aenean vitae ex a purus sollicitudin finibus eget ut felis. Nam arcu velit, pretium nec pellentesque at, facilisis vitae lacus. </p>
           </div>
+  </div>
 </div>
-
         <nav id="footer" class="navbar navbar-default navbar-bottom footer" style="margin-top: 50px; margin-bottom: 0;" role="navigation">
           <div class="container">
             <div class="col-md-4">
