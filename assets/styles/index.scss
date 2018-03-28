@@ -82,9 +82,13 @@ padding: 19vh 10% 10vh 9%;
 
 .product-tile {
   color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images-na.ssl-images-amazon.com/images/I/51Y0EYT9R6L.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)), url('https://images-na.ssl-images-amazon.com/images/I/51Y0EYT9R6L.jpg');
   background-position: center;
   background-size: 120%;
+  border: 2px solid white;
+  padding: 14vh 2vw 2vh 2vw;
+  height: 40vh;
+  min-height: 300px;
 }
 
 .modal-title {
@@ -146,7 +150,7 @@ padding: 19vh 10% 10vh 9%;
   margin: 0 auto;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .header-main {
     background-position: bottom;
     background-size: auto 100%;
@@ -169,5 +173,9 @@ padding: 19vh 10% 10vh 9%;
   weight: 100%;
   padding: 10% 10%;
   margin: 0 auto;
+  }
+  .product-tile {
+    padding: 10vh 2vw 2vh 2vw;
+    min-height: 50vh;
   }
 }

@@ -1,11 +1,8 @@
 {{#each products as |product|}}
-<div class="col-lg-3 col-md-4 col-sm-6 text-center product-tile" style="min-height: 35vh; padding: 10vh 2vw 8vh 2vw; background-color: #efefef; border: 2px solid white;">
+<div class="col-lg-3 col-md-4 col-sm-6 text-center product-tile" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, .8)), url({{product.imageUrl}}); background-position: center; background-size: 120%;">
       <h3 data-id="{{product._id}}">
           {{product.name}}
       </h3>
-        <!-- <h5>
-          ID: {{product._id}}
-        </h5> -->
         <p>
           {{product.description}}
         </p>
