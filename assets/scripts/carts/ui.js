@@ -9,7 +9,7 @@ const showPastPurchasesTemplate = require('../templates/past-purchase-listing.ha
 const getActiveCartSuccess = function () {
   const showActiveCart = showActiveCartTemplate({ cartProducts: store.activeCart.cartProducts })
   $('#active-cart-content').html(showActiveCart)
-  $('#active-cart-total').html(`<h2>Total: ${store.activeCart.total.toFixed(2)}</h2>`)
+  $('#active-cart-total').html(`<h2>Total: ${store.activeCart.total}</h2>`)
 }
 
 const getActiveCartFailure = function (error) {
