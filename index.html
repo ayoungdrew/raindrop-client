@@ -67,8 +67,8 @@
                         <a id="products-sports-outdoors" href="#" data-id="sportsAndOutdoors">Sports & Outdoors<i class="icon-arrow-right"></i></a>
                       </li>
                     </ul>
-              <li><a href="#" id="account-menu" data-toggle="modal" data-target="#user-profile">Account</a></li>
               <li><a href="#" id="cart-menu" data-toggle="modal" data-target="#cart-modal">Cart</a></li>
+              <li><a href="#" id="account-menu" data-toggle="modal" data-target="#user-profile">Account</a></li>
               <li><a href="#" id="sign-in-menu" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>
               <li><a href="#" id="sign-up-menu" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
               <li id="sign-out-menu"><a  href="#">Sign Out</a></li>
@@ -96,8 +96,8 @@
               </div>
               <div id="active-cart-total">
               </div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button class="btn btn-primary" id="submit-purchase-stripe">Submit Purchase</button>
-
             </div>
           </div>
         </div>
@@ -153,7 +153,6 @@
             </div>
             <div class="modal-body">
             <form id="sign-in" class="form-group">
-              <h2>Sign In</h2>
               <div class="form-group" style="padding-left: 0px;">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="text" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -162,6 +161,7 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Sign in</button>
               <div style="float: right;" id="message"></div>
             </form>
@@ -178,26 +178,23 @@
                 <div class="modal-body">
                   <form id="change-password" class="form-group">
                     <fieldset id="changePasswordForms">
-                      <div>
-                      <div class="form-group col-sm-12">
-                        <label for="exampleInputPassword">Old Password</label>
-                        <input type="password" name="passwords[old]" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
-                      </div>
-                      <div class="form-group col-sm-12">
-                        <label for="exampleInputPassword">New Password</label>
-                        <input type="password" name="passwords[new]" class="form-control" aria-describedby="emailHelp" placeholder="New Password">
-                      </div>
+                    <div class="form-group" style="padding-left: 0px;">
+                      <label for="exampleInputPassword">Old Password</label>
+                      <input type="password" name="passwords[old]" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
                     </div>
-                    </fieldset>
-                    <div class="col-sm-12" id="change-password-modal-message"></div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div>
+                      <label for="exampleInputPassword">New Password</label>
+                      <input type="password" name="passwords[new]" class="form-control" aria-describedby="emailHelp" placeholder="New Password">
+                    </div>
+                   </fieldset>
+                   <br>
                     <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                  </form>
                 </div>
               </div>
               <div class="col-md-6">
                 <h3>Past Purchases</h3>
-                <div id="past-purchases-content">
+                <div id="past-purchases-content" style="overflow-y: scroll; height:80vh;">
               </div>
             </div>
             </div>
