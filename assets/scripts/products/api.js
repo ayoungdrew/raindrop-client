@@ -22,7 +22,18 @@ const getProductsByCategory = function (category) {
   })
 }
 
+const getProductsBySearchEntry = function (searchEntry) {
+  return $.ajax({
+    url: config.apiUrl + '/products?search=true&searchEntry=' + searchEntry,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json'
+    }
+  })
+}
+
 module.exports = {
   getProducts,
-  getProductsByCategory
+  getProductsByCategory,
+  getProductsBySearchEntry
 }

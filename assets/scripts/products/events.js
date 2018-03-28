@@ -36,6 +36,16 @@ const onGetProductDetail = function (event) {
   productUi.getProductDetailSuccess(itemObject)
 }
 
+const onSearchProducts = function (event) {
+  event.preventDefault()
+  const searchEntry = $('#search-products input').val()
+  console.log('searchEntry is ', searchEntry)
+
+  productApi.getProductsBySearchEntry(searchEntry)
+    .then(productUi.getProductsSuccess)
+    .catch(productUi.getProductsFailure)
+}
+
 const productHandlers = () => {
   productApi.getProducts()
     .then(cartParse.setAllProducts)
@@ -51,7 +61,7 @@ const productHandlers = () => {
   $('body').on('click', '.product-detail', onGetProductDetail)
   $('body').on('click', '.all-products-breadcrumb', onGetProducts)
   $('body').on('click', '.product-category-breadcrumb', onGetProductsByCategory)
-  // $('#test-this-shit').on('click', onGetProductsByCategory)
+  $('#search-products').on('submit', onSearchProducts)
 }
 
 module.exports = {
