@@ -7,6 +7,7 @@ const store = require('../store')
 
 const getProductsSuccess = function (data) {
   console.log(data)
+  $('#product-detail-content').html('')
   $('#all-products-content').show()
   const showProducts = showProductsTemplate({ products: data.products })
   $('#all-products-content').html(showProducts)
@@ -24,9 +25,9 @@ const getProductsFailure = function () {
 
 const getProductDetailSuccess = function (productObj) {
   console.log('let\'s show detils for...', productObj)
-  $('#all-products-content').show()
+  $('#product-detail-content').show()
   const showProduct = showProductDetailTemplate({ product: productObj })
-  $('#all-products-content').html(showProduct)
+  $('#product-detail-content').html(showProduct)
   if (store.signedIn === false) {
     $('.add-to-cart-button').hide()
   } else if (store.signedIn === true) {

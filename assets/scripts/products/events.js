@@ -18,7 +18,7 @@ const onGetProducts = function (event) {
 }
 
 const onGetProductsByCategory = function (event) {
-  console.log('Clicked #products-clothing')
+  console.log('Clicked', this)
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
   const category = $(this).attr('data-id')
 
@@ -49,6 +49,8 @@ const productHandlers = () => {
   $('#products-home-office').on('click', onGetProductsByCategory)
   $('#products-sports-outdoors').on('click', onGetProductsByCategory)
   $('body').on('click', '.product-detail', onGetProductDetail)
+  $('body').on('click', '.all-products-breadcrumb', onGetProducts)
+  $('body').on('click', '.product-category-breadcrumb', onGetProductsByCategory)
   // $('#test-this-shit').on('click', onGetProductsByCategory)
 }
 
