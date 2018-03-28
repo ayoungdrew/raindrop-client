@@ -169,9 +169,14 @@ const setPastPurchaseProductQuantities = function (pastPurchases) {
   for (let i = 0; i < pastPurchases.length; i++) {
     const purchase = pastPurchases[i]
     console.log('purchase.cartProducts is ', purchase.cartProducts)
+
+    const parsedDate = new Date(purchase.updatedAt)
+    const dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'}
+    console.log('parsed date is ', parsedDate.toLocaleString([], dateOptions))
+
     const objToPush = {
       cartProducts: setCartProductQuantities(purchase.cartProducts),
-      updatedAt: purchase.updatedAt,
+      updatedAt: parsedDate.toLocaleString([], dateOptions),
       total: purchase.total,
       id: purchase.id
     }
