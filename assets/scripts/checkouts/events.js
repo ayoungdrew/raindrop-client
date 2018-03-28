@@ -20,6 +20,14 @@ const store = require('../store')
 // Also adds an event listener to the submit-purchase-stripe button, so that when
 // clicked, opens the stripe modal for checkout
 
+const description = function () {
+  if (store.activeCart.cartProducts.length === 1) {
+    return store.activeCart.cartProducts.length + ' ' + 'Drop'
+  } else {
+    return store.activeCart.cartProducts.length + ' ' + 'Drops'
+  }
+}
+
 const checkout = function () {
   const handler = StripeCheckout.configure({
     key: 'pk_test_AFBOWpYyewj4wYgQD8iUWg2i',
@@ -62,7 +70,7 @@ const checkout = function () {
       // `name` is the shop name, `description` is currently hard-coded
       // TODO maybe make description reference actual cart items
       name: 'RAINDROP',
-      description: '2 DROPS',
+      description: description(),
       // currently amount is hard-coded TODO make it ref cart total
       amount: parseInt((store.activeCart.total * 100).toFixed(2), 10)
     })
