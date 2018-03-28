@@ -14,6 +14,7 @@ const getActiveCartSuccess = function () {
 
 const getActiveCartFailure = function (error) {
   console.log('Failed to get active cart')
+  $('#submit-purchase-stripe').hide()
   $('#active-cart-content').html('<p>Your Cart is Empty!</p>')
   $('#active-cart-total').html(``)
   console.log(error)
@@ -76,6 +77,7 @@ const updateCartFailure = function (error) {
 
 const addToCartSuccess = function (data) {
   toast.success('Item added to cart.')
+  $('#submit-purchase-stripe').show()
   console.log('Added product cart')
 }
 

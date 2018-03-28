@@ -20,6 +20,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   store.signedIn = true
   console.log('User data is: ', data.user)
+  $('#submit-purchase-stripe').show()
   $('#sign-in-modal').modal('hide')
   $('#sign-in').get(0).reset()
   toast.success('Successfully signed in.')
