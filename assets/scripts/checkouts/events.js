@@ -31,7 +31,7 @@ const description = function () {
 const checkout = function () {
   const handler = StripeCheckout.configure({
     key: 'pk_test_AFBOWpYyewj4wYgQD8iUWg2i',
-    image: 'https://res.cloudinary.com/ptavarez/image/upload/v1522251469/raincloud.jpg',
+    image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
     locale: 'auto',
     token: function (token) {
       // This data is used by Stripe to generat a token
