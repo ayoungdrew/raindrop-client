@@ -27,7 +27,7 @@ All-in-all we were super lucky in many ways but also pushed ourselves and each o
 Raindrop and Wee out.
 
 ## Wire Frames
-![wireframe1](https://imgur.com/fWnevD0)
+![wireframe1](https://i.imgur.com/fWnevD0.jpg)
 
 
 ## User Stories
