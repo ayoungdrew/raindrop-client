@@ -26,7 +26,16 @@ const getActiveCartFailure = function (error) {
 const getPastPurchasesSuccess = function () {
   const pastPurchasesWithQuantities = cartParse.setPastPurchaseProductQuantities(store.pastPurchases)
   const showPastPurchases = showPastPurchasesTemplate({ pastPurchases: pastPurchasesWithQuantities })
-  $('#past-purchases-content').html(showPastPurchases)
+  const whenToShowPastPurchase = function () {
+    if (store.pastPurchases.length === 0) {
+      $('#no-purchases').html('Nothing to see here... Yet.')
+      $('#past-purchases-content').html('')
+    } else {
+      $('#no-purchases').html('')
+      $('#past-purchases-content').html(showPastPurchases)
+    }
+  }
+  whenToShowPastPurchase()
   console.log('store.pastPurchases after pastPurchasesWithQuantities', store.pastPurchases)
 }
 
