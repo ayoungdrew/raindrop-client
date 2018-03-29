@@ -49,7 +49,7 @@ const onSignOut = function (event) {
 const onGetAccount = function (event) {
   // console.log('hey')
   $('#user-account').show()
-  $('#all-products-content, #intro-header, #intro-see-all-products, #intro-about-raindrop').hide()
+  $('#all-products-content, #product-detail-content, #intro-header, #intro-see-all-products, #intro-about-raindrop').hide()
 }
 
 const onBackHome = function (event) {
