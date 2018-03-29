@@ -55,6 +55,7 @@ const signOutSuccess = function (data) {
   console.log('Sign Out Success')
   $('#sign-out-menu, #change-password-menu, #cart-menu, #account-menu, #all-products-content, .add-to-cart-button, #user-account, #product-detail-content').hide()
   $('#sign-in-menu, #sign-up-menu, #intro-header, #intro-see-all-products, #intro-about-raindrop, .sign-in-to-buy').show()
+  store.currentProductCategory = 'all'
 }
 
 const signOutFailure = function () {
