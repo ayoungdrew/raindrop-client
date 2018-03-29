@@ -55,6 +55,8 @@ const onGetAccount = function (event) {
 const onBackHome = function (event) {
   // console.log('hey')
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop').show()
+  productApi.getProducts()
+    .then(cartParse.setAllProducts)
   $('#all-products-content').hide()
   $('#product-detail-content').hide()
   $('#user-account').hide()

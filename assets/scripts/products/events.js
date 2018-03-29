@@ -48,6 +48,22 @@ const onSearchProducts = function (event) {
     .catch(productUi.getProductsFailure)
 }
 
+const onSortProducts = function (event) {
+  event.preventDefault()
+  const sortOrder = $(this).attr('data-id')
+  const sortParam = $(this).attr('data-sort')
+  // console.log('sortOrder is ', sortOrder)
+  // console.log('sortParam is ', sortParam)
+  // console.log('store.currentlyViewedProducts.products is ', store.currentlyViewedProducts.products)
+  const data = cartParse.sortProducts(sortParam, sortOrder)
+  // console.log('data is ', data)
+  productUi.getProductsSuccess(data)
+
+  // productApi.getProductsBySearchEntry(searchEntry)
+  //   .then(productUi.getProductsSuccess)
+  //   .catch(productUi.getProductsFailure)
+}
+
 const onSortByPrice = function (event) {
   event.preventDefault()
   const sortOrder = $(this).attr('data-id')
@@ -77,6 +93,8 @@ const productHandlers = () => {
   $('#sort-price-ascending').on('click', onSortByPrice)
   $('#sort-price-descending').on('click', onSortByPrice)
 
+  $('#price-descending').on('click', onSortProducts)
+  $('#price-ascending').on('click', onSortProducts)
   $('body').on('mouseover', '.product-tile', function () {
     $(this).stop().animate({ backgroundSize: '130%' }, 100)
   })

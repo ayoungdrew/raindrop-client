@@ -10,6 +10,7 @@ const getProductsSuccess = function (data) {
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
   $('#product-detail-content').html('')
   $('#all-products-content').show()
+  store.currentlyViewedProducts = data
   if (data.products.length === 0) {
     $('#all-products-content').html('<div class="text-center"><br><br>No Products Match Your Search</div>')
   } else {
