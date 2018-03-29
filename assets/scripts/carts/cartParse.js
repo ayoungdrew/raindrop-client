@@ -11,7 +11,7 @@ const setAllProducts = function (data) {
   data.products.forEach((product) => {
     store.allProducts[product._id] = product
   })
-  console.log(store.allProducts)
+  // console.log(store.allProducts)
   return data
 }
 
@@ -23,12 +23,12 @@ const setAllLocalCarts = function (data) {
   store.allMyCarts = data.carts
   // sets all of the cart totals
   setAllCartTotals()
-  console.log('store.allMyCarts is ', store.allMyCarts)
+  // console.log('store.allMyCarts is ', store.allMyCarts)
   // parses past purchase carts out from all of a users carts and stores locally
   setPastPurchases()
   // set the active cart, if there's more than one, set the most recent
   setNewestActiveCart()
-  console.log('store.pastPurchases is ', store.pastPurchases)
+  // console.log('store.pastPurchases is ', store.pastPurchases)
   return data
 }
 
@@ -40,9 +40,9 @@ const setNewestActiveCart = function () {
   activeCarts.sort(function (a, b) {
     return Date.parse(b.createdAt) - Date.parse(a.createdAt)
   })
-  console.log('sorted activeCarts are ', activeCarts)
+  // console.log('sorted activeCarts are ', activeCarts)
   store.activeCart = activeCarts[0]
-  console.log('activeCart is ', store.activeCart)
+  // console.log('activeCart is ', store.activeCart)
 }
 
 // parses past purchase carts out from all of a users carts and stores locally
@@ -64,8 +64,8 @@ const setCartTotal = function (cart) {
   cart.cartProducts.forEach((cartProduct) => {
     total += cartProduct.price
   })
-  console.log('total before rounding is ', total)
-  console.log('total after rounding is ', total.toFixed(2))
+  // console.log('total before rounding is ', total)
+  // console.log('total after rounding is ', total.toFixed(2))
   cart.total = total.toFixed(2)
 }
 
@@ -111,15 +111,15 @@ const deleteItemFromCart = function (productId) {
     return 'marked for deletion'
   } else {
     // Otherwise, find and delete the given product
-    console.log('activeCart before splice is: ', store.activeCart.cartProducts.length)
+    // console.log('activeCart before splice is: ', store.activeCart.cartProducts.length)
     const product = store.activeCart.cartProducts.find((product) => {
       return product._id === productId
     })
-    console.log('product obj is ', product)
+    // console.log('product obj is ', product)
     const index = store.activeCart.cartProducts.indexOf(product)
-    console.log('index of product is ', index)
+    // console.log('index of product is ', index)
     store.activeCart.cartProducts.splice(index, 1)
-    console.log('activeCart after splice is: ', store.activeCart.cartProducts.length)
+    // console.log('activeCart after splice is: ', store.activeCart.cartProducts.length)
     return packageCartDataForAPI(store.activeCart)
   }
 }
@@ -157,7 +157,7 @@ const setCartProductQuantities = function (cartProducts) {
       packagedCartArray[productIndex].quantity += 1
     }
   })
-  console.log('cartProducts after setCartProductQuantities is ', cartProducts)
+  // console.log('cartProducts after setCartProductQuantities is ', cartProducts)
   // now return our packaged cart product array for handlebars
   return packagedCartArray
 }
@@ -168,11 +168,11 @@ const setPastPurchaseProductQuantities = function (pastPurchases) {
   const packagedPastPurchases = []
   for (let i = 0; i < pastPurchases.length; i++) {
     const purchase = pastPurchases[i]
-    console.log('purchase.cartProducts is ', purchase.cartProducts)
+    // console.log('purchase.cartProducts is ', purchase.cartProducts)
 
     const parsedDate = new Date(purchase.updatedAt)
     const dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'}
-    console.log('parsed date is ', parsedDate.toLocaleString([], dateOptions))
+    // console.log('parsed date is ', parsedDate.toLocaleString([], dateOptions))
 
     const objToPush = {
       cartProducts: setCartProductQuantities(purchase.cartProducts),
