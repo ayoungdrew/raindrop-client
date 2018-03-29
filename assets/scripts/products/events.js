@@ -78,11 +78,10 @@ const productHandlers = () => {
   $('#sort-price-descending').on('click', onSortByPrice)
 
   $('body').on('mouseover', '.product-tile', function () {
-    $(this).animate({ backgroundSize: '130%' }, 200)
+    $(this).stop().animate({ backgroundSize: '130%' }, 150)
   })
   $('body').on('mouseleave', '.product-tile', function () {
-    $(this).animate({ backgroundSize: '120%' }, 200)
-    // $(this).removeClass('hey')
+    $(this).stop().animate({ backgroundSize: '120%' }, 150)
   })
 }
 

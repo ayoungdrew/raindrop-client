@@ -7,6 +7,7 @@ const store = require('../store')
 
 const getProductsSuccess = function (data) {
   console.log(data)
+  $('#intro-header, #intro-see-all-products, #intro-about-raindrop').hide()
   $('#product-detail-content').html('')
   $('#all-products-content').show()
   const showProducts = showProductsTemplate({ products: data.products })
