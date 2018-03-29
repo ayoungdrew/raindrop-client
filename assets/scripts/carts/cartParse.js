@@ -8,11 +8,20 @@ const store = require('../store')
 // promise chained
 const setAllProducts = function (data) {
   store.allProducts = {}
+  store.currentlyViewedProducts = data
   data.products.forEach((product) => {
     store.allProducts[product._id] = product
   })
   // console.log(store.allProducts)
   return data
+}
+
+const sortProducts = function (sortParam, sortOrder) {
+  store.currentlyViewedProducts.products.sort(function (a, b) {
+    return sortOrder * (a[sortParam] - b[sortParam])
+  })
+  // console.log('store.currentlyViewedProducts.products is ', store.currentlyViewedProducts.products)
+  return store.currentlyViewedProducts
 }
 
 // store all cart data locally, sort past carts, set cart totals
@@ -191,5 +200,6 @@ module.exports = {
   addItemToCart,
   deleteItemFromCart,
   setCartProductQuantities,
-  setPastPurchaseProductQuantities
+  setPastPurchaseProductQuantities,
+  sortProducts
 }
