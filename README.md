@@ -1,7 +1,9 @@
-## raindrop-client
+## Raindrop Client
+### The Future In E-Commerce
+
   Raindrop is an E-commerce site that sells a variety of products. Users can
   browse a variety of products across a range of categories including: Electronics,
-  Clothing, Entertainment, ...
+  Clothing, Entertainment and more!
 
 
 ## Web App URL
