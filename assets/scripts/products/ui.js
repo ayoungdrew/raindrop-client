@@ -7,7 +7,7 @@ const store = require('../store')
 
 const getProductsSuccess = function (data) {
   // console.log(data)
-  $('#intro-header, #intro-see-all-products, #intro-about-raindrop').hide()
+  $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
   $('#product-detail-content').html('')
   $('#all-products-content').show()
   if (data.products.length === 0) {
