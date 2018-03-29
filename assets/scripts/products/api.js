@@ -32,8 +32,19 @@ const getProductsBySearchEntry = function (searchEntry) {
   })
 }
 
+const getProductsSortedByPrice = function (sortOrder, currentProductCategory) {
+  return $.ajax({
+    url: config.apiUrl + '/products?sortPrice=true&order=' + sortOrder + '&category=' + currentProductCategory,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json'
+    }
+  })
+}
+
 module.exports = {
   getProducts,
   getProductsByCategory,
-  getProductsBySearchEntry
+  getProductsBySearchEntry,
+  getProductsSortedByPrice
 }

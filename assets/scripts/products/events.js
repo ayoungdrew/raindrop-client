@@ -8,6 +8,7 @@ const store = require('../store')
 const onGetProducts = function (event) {
   console.log('Clicked see all products button')
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
+  store.currentProductCategory = 'all'
 
   productApi.getProducts()
     // store all product objects locally in a hash, where each item obj is
@@ -21,6 +22,7 @@ const onGetProductsByCategory = function (event) {
   console.log('Clicked', this)
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
   const category = $(this).attr('data-id')
+  store.currentProductCategory = category
 
   productApi.getProductsByCategory(category)
     .then(productUi.getProductsSuccess)
@@ -46,6 +48,16 @@ const onSearchProducts = function (event) {
     .catch(productUi.getProductsFailure)
 }
 
+const onSortByPrice = function (event) {
+  event.preventDefault()
+  const sortOrder = $(this).attr('data-id')
+  console.log('sortOrder is ', sortOrder)
+
+  productApi.getProductsSortedByPrice(sortOrder, store.currentProductCategory)
+    .then(productUi.getProductsSuccess)
+    .catch(productUi.getProductsFailure)
+}
+
 const productHandlers = () => {
   productApi.getProducts()
     .then(cartParse.setAllProducts)
@@ -62,6 +74,8 @@ const productHandlers = () => {
   $('body').on('click', '.all-products-breadcrumb', onGetProducts)
   $('body').on('click', '.product-category-breadcrumb', onGetProductsByCategory)
   $('#search-products').on('submit', onSearchProducts)
+  $('#sort-price-ascending').on('click', onSortByPrice)
+  $('#sort-price-descending').on('click', onSortByPrice)
 
   $('body').on('mouseover', '.product-tile', function () {
     $(this).animate({ backgroundSize: '130%' }, 200)
