@@ -6,7 +6,7 @@ const cartParse = require('../carts/cartParse')
 const store = require('../store')
 
 const onGetProducts = function (event) {
-  console.log('Clicked see all products button')
+  // console.log('Clicked see all products button')
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
   store.currentProductCategory = 'all'
 
@@ -19,7 +19,7 @@ const onGetProducts = function (event) {
 }
 
 const onGetProductsByCategory = function (event) {
-  console.log('Clicked', this)
+  // console.log('Clicked', this)
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
   const category = $(this).attr('data-id')
   store.currentProductCategory = category
@@ -30,10 +30,10 @@ const onGetProductsByCategory = function (event) {
 }
 
 const onGetProductDetail = function (event) {
-  console.log('Clicked .product-detail')
+  // console.log('Clicked .product-detail')
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop, #user-account').hide()
   const productId = $(this).attr('data-id')
-  console.log(store.allProducts[productId])
+  // console.log(store.allProducts[productId])
   const itemObject = store.allProducts[productId]
   productUi.getProductDetailSuccess(itemObject)
 }
@@ -41,7 +41,7 @@ const onGetProductDetail = function (event) {
 const onSearchProducts = function (event) {
   event.preventDefault()
   const searchEntry = $('#search-products input').val()
-  console.log('searchEntry is ', searchEntry)
+  // console.log('searchEntry is ', searchEntry)
 
   productApi.getProductsBySearchEntry(searchEntry)
     .then(productUi.getProductsSuccess)
@@ -51,7 +51,7 @@ const onSearchProducts = function (event) {
 const onSortByPrice = function (event) {
   event.preventDefault()
   const sortOrder = $(this).attr('data-id')
-  console.log('sortOrder is ', sortOrder)
+  // console.log('sortOrder is ', sortOrder)
 
   productApi.getProductsSortedByPrice(sortOrder, store.currentProductCategory)
     .then(productUi.getProductsSuccess)

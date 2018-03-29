@@ -35,7 +35,7 @@ const checkout = function () {
     locale: 'auto',
     token: function (token) {
       // This data is used by Stripe to generat a token
-      console.log('stripe total #1 SHOULD be: ', store.activeCart.total * 100)
+      // console.log('stripe total #1 SHOULD be: ', store.activeCart.total * 100)
       const tokenData = {
         token: {
           token_id: token.id,
@@ -48,7 +48,7 @@ const checkout = function () {
       checkoutApi.createToken(tokenData)
         .then((data) => {
           $('#cart-modal').modal('hide')
-          console.log('Payment Sent', data)
+          // console.log('Payment Sent', data)
           return data
         })
         .then(cartApi.purchasedTrue)
@@ -74,7 +74,7 @@ const checkout = function () {
       // currently amount is hard-coded TODO make it ref cart total
       amount: parseInt((store.activeCart.total * 100).toFixed(2), 10)
     })
-    console.log('stripe total #2 SHOULD be: ', parseInt((store.activeCart.total * 100).toFixed(2), 10))
+    // console.log('stripe total #2 SHOULD be: ', parseInt((store.activeCart.total * 100).toFixed(2), 10))
     event.preventDefault()
   })
   // Close Checkout on page navigation:
