@@ -146,7 +146,17 @@ padding: 19vh 10% 10vh 9%;
   }
 }
 
+.navbar-form {
+  margin: 0;
+}
+
 .dropdown-menu  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+.form-control  {
     -webkit-border-radius: 0px !important;
     -moz-border-radius: 0px !important;
     border-radius: 0px !important;
