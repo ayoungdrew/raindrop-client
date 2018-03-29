@@ -11,7 +11,7 @@ const getProductsSuccess = function (data) {
   $('#product-detail-content').html('')
   $('#all-products-content').show()
   if (data.products.length === 0) {
-    $('#all-products-content').html('<br><br>No Products Match Your Search')
+    $('#all-products-content').html('<div class="text-center"><br><br>No Products Match Your Search</div>')
   } else {
     const showProducts = showProductsTemplate({ products: data.products })
     $('#all-products-content').html(showProducts)
@@ -21,11 +21,13 @@ const getProductsSuccess = function (data) {
       $('.sign-in-to-buy').hide()
     }
   }
+  $('#search-products input').val('')
 }
 
 const getProductsFailure = function () {
   toast.failure('Server connection error. Please try again later.')
   // console.log('Failed to get all products')
+  $('#search-products input').val('')
 }
 
 const getProductDetailSuccess = function (productObj) {

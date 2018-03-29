@@ -10,7 +10,7 @@
 
 https://raindropandwee.github.io/raindrop-client/
 
-## Gobin Colosseum API URL/Github Repo
+## Raindrop API URL/Github Repo
 
 - Github Repo: https://github.com/RaindropAndWee/raindrop-api
 - API: https://raindrop-api.herokuapp.com/
@@ -35,16 +35,17 @@ Raindrop and Wee out.
 ## User Stories
 Below are some of the initial user stories we made during the planning stage:
   As a user, I should be able to:
-    - create an account
-    - login to my account
-    - change my password
-    - sign out of my account
-    - See all produts
-    - View my cart-items
-    - Add products to my cart
-    - Remove a product from my cart
-    - Purchase products from my cart
-    - View all of my past purchases
+
+- create an account
+- login to my account
+- change my password
+- sign out of my account
+- See all produts
+- View my cart-items
+- Add products to my cart
+- Remove a product from my cart
+- Purchase products from my cart
+- View all of my past purchases
 
 ## Technologies Used
 * JavaScript
@@ -60,7 +61,7 @@ Below are some of the initial user stories we made during the planning stage:
 * Stripe
 
 ## Future Iterations
-- In-progress sort function. Impressive shit not well tested yet.
+- In-progress sort function. Impressive shit not well tested yet
 - Shipping/address info for users and carts/orders
 - Multiple images for products
 - Product variations

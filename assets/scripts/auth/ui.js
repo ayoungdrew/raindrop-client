@@ -51,6 +51,7 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function (data) {
   store.signedIn = false
+  $('#search-products input').val('')
   toast.success('Successfully signed out.')
   // console.log('Sign Out Success')
   $('#sign-out-menu, #change-password-menu, #cart-menu, #account-menu, #all-products-content, .add-to-cart-button, #user-account, #product-detail-content').hide()
