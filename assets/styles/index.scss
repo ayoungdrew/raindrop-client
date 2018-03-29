@@ -22,6 +22,24 @@ p {
 //     color: white;
 // }
 
+a {
+  color: #099db7;
+  text-decoration: none;
+h2:hover {
+  color: #099db7;
+}
+}
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+a:focus {
+  color: #099db7;
+}
+// a:hover {
+//   color: #099db7;
+// }
+
 .navbar-brand {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
@@ -42,7 +60,7 @@ p {
 
 .header-main {
   // background-image: url(https://i.imgur.com/FH87urE.jpg);
-  background: url('https://c1.staticflickr.com/1/883/40185493065_72fe334fe5_o.jpg') no-repeat;
+  background: url('https://res.cloudinary.com/duqjlnkij/image/upload/v1522289123/bg-raindrop-a.jpg') no-repeat;
   background-position: bottom;
   background-size: 100%;
   height: 60vh;
