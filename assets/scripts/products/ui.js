@@ -10,12 +10,16 @@ const getProductsSuccess = function (data) {
   $('#intro-header, #intro-see-all-products, #intro-about-raindrop').hide()
   $('#product-detail-content').html('')
   $('#all-products-content').show()
-  const showProducts = showProductsTemplate({ products: data.products })
-  $('#all-products-content').html(showProducts)
-  if (store.signedIn === false) {
-    $('.add-to-cart-button').hide()
-  } else if (store.signedIn === true) {
-    $('.sign-in-to-buy').hide()
+  if (data.products.length === 0) {
+    $('#all-products-content').html('<br><br>No Products Match Your Search')
+  } else {
+    const showProducts = showProductsTemplate({ products: data.products })
+    $('#all-products-content').html(showProducts)
+    if (store.signedIn === false) {
+      $('.add-to-cart-button').hide()
+    } else if (store.signedIn === true) {
+      $('.sign-in-to-buy').hide()
+    }
   }
 }
 
