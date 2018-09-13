@@ -20,6 +20,8 @@ jobs:
           - development
     steps:
       - checkout
+      - restore_cache:
+          key: npm-cache-{{ .Branch }}-{{ checksum "package.json" }}
       - run: npm install
       - save_cache:
           key: npm-cache-{{ .Branch }}-{{ checksum "package.json" }}
